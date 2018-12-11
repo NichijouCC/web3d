@@ -1,0 +1,17 @@
+{
+    "layer": "geometry",
+    "queue":0,
+    "properties":
+    {
+        
+    },
+    "passes": {
+        "base": [
+            {
+                "showface": "cw",
+                "vs": "posteffect",
+                "fs": "posteffect"
+            }
+        ]
+    }
+}

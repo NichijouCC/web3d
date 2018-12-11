@@ -1,0 +1,136 @@
+{
+	"root": 2,
+	"gameobjects": {
+		"2": {
+			"type": "GameObject",
+			"value": {
+				"name": "obj",
+				"mask": 2,
+				"hideFlags": 0,
+				"components": {
+					"type": "Array",
+					"value": [{
+						"type": "MeshFilter",
+						"value": {
+							"gameObject": {
+								"type": "GameObject",
+								"id": 2
+							},
+							"_mesh": {
+								"type": "Web3dAsset",
+								"id": 9
+							}
+						}
+					}, {
+						"type": "MeshRender",
+						"value": {
+							"gameObject": {
+								"type": "GameObject",
+								"id": 2
+							},
+							"materials": {
+								"type": "Array",
+								"value": [{
+									"type": "Material",
+									"id": 10
+								}]
+							},
+							"lightmapIndex": -1,
+							"lightmapTilingOffset": {
+								"type": "vec4",
+								"value": "1,1,0,0"
+							}
+						}
+					}]
+				},
+				"meshFilter": {
+					"type": "MeshFilter",
+					"value": {
+						"gameObject": {
+							"type": "GameObject",
+							"id": 2
+						},
+						"_mesh": {
+							"type": "Web3dAsset",
+							"id": 9
+						}
+					}
+				},
+				"render": {
+					"type": "MeshRender",
+					"value": {
+						"gameObject": {
+							"type": "GameObject",
+							"id": 2
+						},
+						"materials": {
+							"type": "Array",
+							"value": [{
+								"type": "Material",
+								"id": 10
+							}]
+						},
+						"lightmapIndex": -1,
+						"lightmapTilingOffset": {
+							"type": "vec4",
+							"value": "1,1,0,0"
+						}
+					}
+				},
+				"beVisible": true
+			}
+		}
+	},
+	"transforms": {
+		"2": {
+			"type": "Transform",
+			"value": {
+				"children": {
+					"type": "Array",
+					"value": []
+				},
+				"_localRotate": {
+					"type": "quat",
+					"value": "0,0,0,1"
+				},
+				"localEulerAngles": {
+					"type": "vec3",
+					"value": "0,0,0"
+				},
+				"localPosition": {
+					"type": "vec3",
+					"value": "0,0,0"
+				},
+				"localScale": {
+					"type": "vec3",
+					"value": "1,1,1"
+				},
+				"_gameObject": {
+					"type": "GameObject",
+					"id": 2
+				}
+			}
+		}
+	},
+	"web3dassets": {
+		"9": {
+			"type": "Mesh",
+			"value": {
+				"name": "quad.mesh.bin",
+				"beDefaultAsset": false,
+				"type": 3
+			}
+		},
+		"10": {
+			"type": "Material",
+			"value": {
+				"name": "diff.mat.json",
+				"beDefaultAsset": false,
+				"shader": null,
+				"queue": 0,
+				"UniformDic": null,
+				"type": 2
+			}
+		}
+	}
+}

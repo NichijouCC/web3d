@@ -1,0 +1,80 @@
+{
+    "layer": "transparent",
+    "properties": [
+        "_MainTex('MainTex',Texture)='grid'{}",
+        "_MainTex_ST('MainTex_ST',vector4) = (1,1,0,0)",
+        "_MainColor ('MainColor', Color) = (1,1,1,1)"
+    ],
+    "passes": {
+        "base": [
+            {
+                "showface": "all",
+                "vs":"diffuse",
+                "fs":"diffuse",
+                "blendmode": "blend",
+                "zwrite": "off",
+                "ztest":"on"  
+            }
+        ],
+        "fog": [
+            {
+                "showface": "all",
+                "vs":"diffuse",
+                "fs":"diffuse",
+                "blendmode": "blend",
+                "zwrite": "off",
+                "ztest":"on"   
+            }
+        ],
+        "skin": [
+            {
+                "showface": "all",
+                "vs":"diffuse",
+                "fs":"diffuse",
+                "blendmode": "blend",
+                "zwrite": "off",
+                "ztest":"on"
+            }
+        ],
+        "skin_fog": [
+            {
+                "showface": "all",
+                "vs":"diffuse",
+                "fs":"diffuse",
+                "blendmode": "blend",
+                "zwrite": "off",
+                "ztest":"on"  
+            }
+        ],
+        "lightmap": [
+            {
+                "showface": "all",
+                "vs":"diffuse",
+                "fs":"diffuse",
+                "blendmode": "blend",
+                "zwrite": "off",
+                "ztest":"on"  
+            }
+        ],
+        "lightmap_fog": [
+            {
+                "showface": "all",
+                "vs":"diffuse",
+                "fs":"diffuse",
+                "blendmode": "blend",
+                "zwrite": "off",
+                "ztest":"on"  
+            }
+        ],
+        "instance": [
+            {
+                "showface": "all",
+                "vs":"diffuse",
+                "fs":"diffuse",
+                "blendmode": "blend",
+                "zwrite": "off",
+                "ztest":"on"  
+            }
+        ]
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "shader":"diffuse.shader.json",
+    "srcshader":"Gd3d/Diffuse",
+    "mapUniform":
+    {
+        "_MainColor":
+        {
+            "type":"Vector4",
+            "value":"(1,1,1,1)"
+        },
+        "_AlphaCut":
+        {
+            "type":"Float",
+            "value":0.5
+        },
+        "_MainTex":
+        {
+            "type":"Texture",
+            "value":"2.imgdes.json"
+        }
+    },
+    "dependenciesUrl":
+    [
+        "2.imgdes.json"
+    ]
+}

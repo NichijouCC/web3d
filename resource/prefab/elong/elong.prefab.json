@@ -1,0 +1,192 @@
+{
+    "web3dassets": {
+        "1376": {
+            "type": "Aniclip",
+            "URL": "resources/Run.Aniclip.bin"
+        },
+        "310": {
+            "type": "Mesh",
+            "URL": "resources/Boss_Blackdragon.mesh.bin"
+        },
+        "750": {
+            "type": "Material",
+            "URL": "resources/1525_firedragon02_d.mat.json"
+        },
+        "1190": {
+            "type": "Texture",
+            "URL": "resources/1525_firedragon02_d.imgdes.json"
+        }
+    },
+    "gameobjects": {
+        "-42962": {
+            "type": "GameObject",
+            "value": {
+                "name": "elong",
+                "beStatic": false,
+                "_transform": {
+                    "type": "Transform",
+                    "id": "-42982"
+                },
+                "components": {
+                    "type": "Array",
+                    "value": [
+                        {
+                            "type": "Animator",
+                            "value": {
+                                "Aniclips": {
+                                    "type": "Array",
+                                    "value": [
+                                        {
+                                            "type": "Aniclip",
+                                            "id": 1376
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "-42966": {
+            "type": "GameObject",
+            "value": {
+                "name": "Boss_Blackdragon",
+                "beStatic": false,
+                "_transform": {
+                    "type": "Transform",
+                    "id": "-43106"
+                },
+                "components": {
+                    "type": "Array",
+                    "value": [
+                        {
+                            "type": "SkinMeshRender",
+                            "value": {
+                                "mesh": {
+                                    "type": "Mesh",
+                                    "id": 310
+                                },
+                                "materials": {
+                                    "type": "Array",
+                                    "value": [
+                                        {
+                                            "type": "Material",
+                                            "id": 750
+                                        }
+                                    ]
+                                },
+                                "bonesname": {
+                                    "type": "Array",
+                                    "value": [
+                                        "Bip001 Neck",
+                                        "Bip001 Neck1",
+                                        "Bip001 Spine1",
+                                        "Bip001 Head",
+                                        "Bone004",
+                                        "Bip001 Xtra09",
+                                        "Bip001 Spine",
+                                        "Bip001 L UpperArm",
+                                        "Bip001 L Clavicle",
+                                        "Bip001 Pelvis",
+                                        "Bip001 L Thigh",
+                                        "Bip001 R Clavicle",
+                                        "Bip001 R UpperArm",
+                                        "Bip001 R Thigh",
+                                        "Bip001 Xtra01",
+                                        "Bone001",
+                                        "Bone002",
+                                        "Bone003",
+                                        "Bone005",
+                                        "Bip001 L Forearm",
+                                        "Bip001 L Hand",
+                                        "Bip001 L Finger0",
+                                        "Bip001 L Finger01",
+                                        "Bip001 L Calf",
+                                        "Bip001 L HorseLink",
+                                        "Bip001 L Foot",
+                                        "Bip001 L Toe0",
+                                        "Bip001 L Toe01",
+                                        "Bip001 R Forearm",
+                                        "Bip001 R Hand",
+                                        "Bip001 R Finger0",
+                                        "Bip001 R Finger01",
+                                        "Bip001 R Calf",
+                                        "Bip001 R HorseLink",
+                                        "Bip001 R Foot",
+                                        "Bip001 R Toe0",
+                                        "Bip001 R Toe01",
+                                        "Bip001 Xtra15",
+                                        "Bip001 Xtra13",
+                                        "Bip001 Xtra14",
+                                        "Bip001 Xtra16",
+                                        "Bip001 Xtra11",
+                                        "Bip001 Xtra12",
+                                        "Bip001 Xtra18",
+                                        "Bip001 Xtra10",
+                                        "Bip001 Xtra07",
+                                        "Bip001 Xtra05",
+                                        "Bip001 Xtra06",
+                                        "Bip001 Xtra03",
+                                        "Bip001 Xtra08",
+                                        "Bip001 Xtra04",
+                                        "Bip001 Xtra17",
+                                        "Bip001 Xtra02"
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "transforms": {
+        "-42982": {
+            "type": "Transform",
+            "value": {
+                "_gameObject": {
+                    "type": "GameObject",
+                    "id": -42962
+                },
+                "children": {
+                    "type": "Array",
+                    "value": [
+                        {
+                            "type": "Transform",
+                            "id": -43106
+                        }
+                    ]
+                }
+            }
+        },
+        "-43106": {
+            "type": "Transform",
+            "value": {
+                "localPosition": {
+                    "type": "vec3",
+                    "value": "0,0,-0.02386975"
+                },
+                "localRotation": {
+                    "type": "quat",
+                    "value": "1,0,0,8.146034E-08"
+                },
+                "_gameObject": {
+                    "type": "GameObject",
+                    "id": -42966
+                },
+                "parent": {
+                    "type": "Transform",
+                    "id": -42982
+                },
+                "children": {
+                    "type": "Array",
+                    "value": []
+                }
+            }
+        }
+    },
+    "prefabData": {
+        "root": -42982
+    }
+}

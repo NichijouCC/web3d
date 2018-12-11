@@ -1,0 +1,15 @@
+{
+    "layer": "geometry",
+    "properties": [
+        "_MosaicSize('MosaicSize',float)=15"
+    ],
+    "passes": {
+        "base": [
+            {
+                "showface": "cw",
+                "vs": "quad",
+                "fs": "mosaic"
+            }
+        ]
+    }
+}

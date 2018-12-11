@@ -1,0 +1,7 @@
+{
+    "texture": "brdfLUT.png",
+    "filterMode": "Bilinear",
+    "wrapMode": "Clamp",
+    "premultiplyAlpha": false,
+    "flip_y":true
+}

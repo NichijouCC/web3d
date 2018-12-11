@@ -1,0 +1,63 @@
+{
+    "layer": "geometry",
+    "properties": [
+        "u_LightDirection('lightdir',vector3)=(1,1,1)",
+        "u_LightColor ('lightcolor', vector3) = (1,1,1)",
+        "u_NormalScale('nscale',Range(0.0,1.0)) = 1.0",
+        "u_EmissiveFactor('Emissive',vector3)=(1,1,1)",
+        "u_BaseColorFactor('basecolor',vector4) = (1,1,1,1)",
+        "u_metalFactor('nscale',Range(0.0,1.0)) = 1.0",
+        "u_roughnessFactor('nscale',Range(0.0,1.0)) = 1.0",
+        "u_metalSampler('metalTex',Texture)='white'{}",
+        "u_roughnessSampler('metalTex',Texture)='white'{}",
+        "u_BaseColorSampler('metalTex',Texture)='white'{}",
+        "u_OcclusionSampler('metalTex',Texture)='black'{}",
+        "u_ScaleBaseTex('u_ScaleBaseTex',vector4) = (0,0,0,0)",
+        "u_Scalebrdf('u_Scalebrdf',vector4) = (0,0,0,0)",
+        "u_ScaleIBL('u_ScaleIBL',vector4) = (0,0,0,0)"
+    ],
+    "passes": {
+        "base": [
+            {
+                "showface": "all",
+                "vs":"pbr_UI",
+                "fs":"pbr_UI"        
+            }
+        ],
+        "fog": [
+            {
+                "showface": "all",
+                "vs":"pbr_UI",
+                "fs":"pbr_UI"  
+            }
+        ],
+        "skin": [
+            {
+                "showface": "all",
+                "vs":"pbr_UI",
+                "fs":"pbr_UI"  
+            }
+        ],
+        "skin_fog": [
+            {
+                "showface": "all",
+                "vs":"pbr_UI",
+                "fs":"pbr_UI"  
+            }
+        ],
+        "lightmap": [
+            {
+                "showface": "all",
+                "vs":"pbr_UI",
+                "fs":"pbr_UI"  
+            }
+        ],
+        "lightmap_fog": [
+            {
+                "showface": "all",
+                "vs":"pbr_UI",
+                "fs":"pbr_UI"
+            }
+        ]
+    }
+}

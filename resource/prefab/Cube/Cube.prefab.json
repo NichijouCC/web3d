@@ -1,0 +1,76 @@
+{
+    "web3dassets": {
+        "1328": {
+            "type": "Mesh",
+            "URL": "resources/Cube.mesh.bin"
+        },
+        "1006": {
+            "type": "Material",
+            "URL": "resources/New Material.mat.json"
+        },
+        "764": {
+            "type": "Texture2D",
+            "URL": "resources/596689.imgdes.json"
+        }
+    },
+    "gameobjects": {
+        "-152030": {
+            "type": "GameObject",
+            "value": {
+                "name": "Cube",
+                "beStatic": false,
+                "_transform": {
+                    "type": "Transform",
+                    "id": "-152032"
+                },
+                "components": {
+                    "type": "Array",
+                    "value": [
+                        {
+                            "type": "MeshFilter",
+                            "value": {
+                                "mesh": {
+                                    "type": "Mesh",
+                                    "id": 1328
+                                }
+                            }
+                        },
+                        {
+                            "type": "MeshRender",
+                            "value": {
+                                "mask": 0,
+                                "materials": {
+                                    "type": "Array",
+                                    "value": [
+                                        {
+                                            "type": "Material",
+                                            "id": 1006
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "transforms": {
+        "-152032": {
+            "type": "Transform",
+            "value": {
+                "_gameObject": {
+                    "type": "GameObject",
+                    "id": -152030
+                },
+                "children": {
+                    "type": "Array",
+                    "value": []
+                }
+            }
+        }
+    },
+    "prefabData": {
+        "root": -152032
+    }
+}

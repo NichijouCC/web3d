@@ -1,0 +1,16 @@
+{
+    "layer": "geometry",
+    "properties": [
+        "_MainTex('MainTex',Texture)='white'{}",
+        "_bloomFactor('bloomFactor',Range(0.0,1.0)) = 2.0"
+    ],
+    "passes": {
+        "base": [
+            {
+                "showface": "cw",
+                "vs": "quad",
+                "fs": "vignetting"
+            }
+        ]
+    }
+}

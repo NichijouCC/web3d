@@ -1,0 +1,24 @@
+{
+    "web3dassets": {
+        "1": {
+            "type": "shader",
+            "URL": "blur.shader.json"
+        },
+        "2": {
+            "type": "shader",
+            "URL": "defError.shader.json"
+        },
+        "3": {
+            "type": "shader",
+            "URL": "diffuse.shader.json"
+        },
+        "4": {
+            "type": "shader",
+            "URL": "mask_add_tint.shader.json"
+        },
+        "5": {
+            "type": "shader",
+            "URL": "mask_blend_tint.shader.json"
+        }
+    }
+}

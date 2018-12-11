@@ -1,0 +1,158 @@
+{
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 28044,
+      "type": "VEC3",
+      "max": [
+        0.12520316243171692,
+        1.1955727338790894,
+        0.18778803944587708
+      ],
+      "min": [
+        -0.19993121922016144,
+        -0.36548805236816406,
+        -0.47208708524703979
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 28044,
+      "type": "VEC3",
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 28044,
+      "type": "VEC4",
+      "max": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 28044,
+      "type": "VEC2",
+      "max": [
+        1.997664213180542,
+        0.994655966758728
+      ],
+      "min": [
+        0.0050345584750175476,
+        0.0031570792198181152
+      ]
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5123,
+      "count": 100629,
+      "type": "SCALAR",
+      "max": [
+        28043.0
+      ],
+      "min": [
+        0.0
+      ]
+    }
+  ],
+  "asset": {
+    "version": "2.0"
+  },
+  "buffers": [
+    {
+      "uri": "Cerberus_LP.bin",
+      "byteLength": 1547370
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 336528
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 336528,
+      "byteLength": 336528
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 673056,
+      "byteLength": 448704
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 1121760,
+      "byteLength": 224352
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 1346112,
+      "byteLength": 201258
+    }
+  ],
+  "materials": [
+    {
+      "name": "Cerberus_A"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0
+        }
+      ],
+      "name": "Cerberus_LP"
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "rotation": [
+        -0.7071068,
+        0.0,
+        0.0,
+        0.7071068
+      ],
+      "name": "Cerberus_LP"
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ],
+      "name": "Cerberus_LP"
+    }
+  ]
+}

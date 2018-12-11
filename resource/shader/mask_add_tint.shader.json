@@ -1,0 +1,22 @@
+{
+    "layer": "transparent",
+	"properties": [
+        "_MainTex('MainTex',texture)='white'{}",
+        "_Mask('Mask',texture)='white'{}",
+        "_MainTex_ST('MainTex_ST',vector4)=(1,1,0,0)",
+        "_Mask_ST('Mask_ST',vector4)=(1,1,0,0)",
+        "_Main_Color('Main_Color', color) = (1,1,0,1)"
+    ],
+    "passes": {
+        "base": [
+            {
+                "showface": "all",
+                "blendmode": "blend",
+                "zwrite": false,
+                "ztest":true,
+                "vs": "mask_trans_tint",
+                "fs": "mask_trans_tint"
+            }
+        ]
+    }
+}

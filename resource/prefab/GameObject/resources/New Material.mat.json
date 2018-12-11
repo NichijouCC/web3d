@@ -1,0 +1,1 @@
+{"name":"New Material","srcshader":"Gd3d/Diffuse","shader":"diffuse.shader.json","mapUniform":{"_MainTex":{"type":"Texture","value":"4008_wing.imgdes.json"},"_MainColor":{"type":"Vector","value":"RGBA(1.000, 1.000, 1.000, 1.000)"},"_AlphaCut":{"type":"Float","value":0.482142865657806},"_Cutoff":{"type":"Float","value":0.5}}}

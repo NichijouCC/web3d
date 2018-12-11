@@ -1,0 +1,6 @@
+{
+    "shader":"pbr_UI.shader.json",
+    "srcshader":"Gd3d/stander",
+    "mapUniform":{
+    }
+}

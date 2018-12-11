@@ -1,0 +1,26 @@
+{
+    "shader":"pbr.shader.json",
+    "srcshader":"Gd3d/stander",
+    "mapUniform":{
+        "u_LightDirection":{
+            "type":"Vector3",
+            "value":"(1,1,1)"
+            },
+        "u_LightColor":{
+            "type":"Vector3",
+            "value":"(1,1,1)"
+            },
+        "u_NormalScale":{
+            "type":"Float",
+            "value":1.0
+        },
+        "u_EmissiveFactor":{
+            "type":"Vector3",
+            "value":"(1,1,1)"
+            },
+        "u_BaseColorFactor":{
+            "type":"Vector4",
+            "value":"(1,1,1,1)"
+        }
+    }
+}

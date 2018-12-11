@@ -1,0 +1,24 @@
+{
+    "layer": "geometry",
+    "queue":0,
+    "properties":
+    {
+        
+    },
+    "passes": {
+        "base": [
+            {
+                "showface": "all",
+                "vs": "defError",
+                "fs": "defError"
+            }
+        ],
+        "skin": [
+            {
+                "showface": "all",
+                "vs": "defError",
+                "fs": "defError"
+            }
+        ]
+    }
+}

@@ -1,0 +1,1 @@
+{"name":"pbr","srcshader":"Bumped Diffuse","shader":"bumped diffuse.shader.json","mapUniform":{"_Color":{"type":"Vector","value":"RGBA(1.000, 1.000, 1.000, 1.000)"},"_MainTex":{"type":"Texture","value":"Object024_albedo.imgdes.json"},"_BumpMap":{"type":"Texture","value":"Object024_normal.imgdes.json"}}}

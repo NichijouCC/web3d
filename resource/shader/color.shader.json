@@ -1,0 +1,23 @@
+{
+    "layer": "geometry",
+    "properties": [
+        "_MainColor ('MainColor', Color) = (1,1,1,1)"
+    ],
+    "passes": {
+        "base": [
+            {
+                "showface": "all",
+                "vs":"color",
+                "fs":"color"        
+            }
+        ],
+        "skin": [
+            {
+                "showface": "all",
+                "vs":"color",
+                "fs":"color"  
+            }
+        ]
+        
+    }
+}

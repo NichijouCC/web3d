@@ -1,0 +1,335 @@
+{
+    "web3dassets": {
+        "1704": {
+            "type": "Mesh",
+            "URL": "resources/Plane.mesh.bin"
+        },
+        "1366": {
+            "type": "Material",
+            "URL": "resources/New Material.mat.json"
+        },
+        "1696": {
+            "type": "Mesh",
+            "URL": "resources/Cube.mesh.bin"
+        },
+        "1700": {
+            "type": "Mesh",
+            "URL": "resources/Sphere.mesh.bin"
+        },
+        "246": {
+            "type": "Texture",
+            "URL": "resources/445275.imgdes.json"
+        }
+    },
+    "gameobjects": {
+        "7982": {
+            "type": "GameObject",
+            "value": {
+                "name": "Plane",
+                "beStatic": true,
+                "_transform": {
+                    "type": "Transform",
+                    "id": "7984"
+                },
+                "components": {
+                    "type": "Array",
+                    "value": [
+                        {
+                            "type": "MeshFilter",
+                            "value": {
+                                "mesh": {
+                                    "type": "Mesh",
+                                    "id": 1704
+                                }
+                            }
+                        },
+                        {
+                            "type": "MeshRender",
+                            "value": {
+                                "mask": 0,
+                                "materials": {
+                                    "type": "Array",
+                                    "value": [
+                                        {
+                                            "type": "Material",
+                                            "id": 1366
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "8086": {
+            "type": "GameObject",
+            "value": {
+                "name": "Cube",
+                "beStatic": true,
+                "_transform": {
+                    "type": "Transform",
+                    "id": "8094"
+                },
+                "components": {
+                    "type": "Array",
+                    "value": [
+                        {
+                            "type": "MeshFilter",
+                            "value": {
+                                "mesh": {
+                                    "type": "Mesh",
+                                    "id": 1696
+                                }
+                            }
+                        },
+                        {
+                            "type": "MeshRender",
+                            "value": {
+                                "mask": 0,
+                                "materials": {
+                                    "type": "Array",
+                                    "value": [
+                                        {
+                                            "type": "Material",
+                                            "id": 1366
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "-10286": {
+            "type": "GameObject",
+            "value": {
+                "name": "Sphere",
+                "beStatic": false,
+                "_transform": {
+                    "type": "Transform",
+                    "id": "-10288"
+                },
+                "components": {
+                    "type": "Array",
+                    "value": [
+                        {
+                            "type": "MeshFilter",
+                            "value": {
+                                "mesh": {
+                                    "type": "Mesh",
+                                    "id": 1700
+                                }
+                            }
+                        },
+                        {
+                            "type": "MeshRender",
+                            "value": {
+                                "mask": 0,
+                                "materials": {
+                                    "type": "Array",
+                                    "value": [
+                                        {
+                                            "type": "Material",
+                                            "id": 1366
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "-21500": {
+            "type": "GameObject",
+            "value": {
+                "name": "Cube",
+                "beStatic": false,
+                "_transform": {
+                    "type": "Transform",
+                    "id": "-21502"
+                },
+                "components": {
+                    "type": "Array",
+                    "value": [
+                        {
+                            "type": "MeshFilter",
+                            "value": {
+                                "mesh": {
+                                    "type": "Mesh",
+                                    "id": 1696
+                                }
+                            }
+                        },
+                        {
+                            "type": "MeshRender",
+                            "value": {
+                                "mask": 0,
+                                "materials": {
+                                    "type": "Array",
+                                    "value": [
+                                        {
+                                            "type": "Material",
+                                            "id": 1366
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "-24310": {
+            "type": "GameObject",
+            "value": {
+                "name": "Sphere",
+                "beStatic": false,
+                "_transform": {
+                    "type": "Transform",
+                    "id": "-24312"
+                },
+                "components": {
+                    "type": "Array",
+                    "value": [
+                        {
+                            "type": "MeshFilter",
+                            "value": {
+                                "mesh": {
+                                    "type": "Mesh",
+                                    "id": 1700
+                                }
+                            }
+                        },
+                        {
+                            "type": "MeshRender",
+                            "value": {
+                                "mask": 0,
+                                "materials": {
+                                    "type": "Array",
+                                    "value": [
+                                        {
+                                            "type": "Material",
+                                            "id": 1366
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "transforms": {
+        "7984": {
+            "type": "Transform",
+            "value": {
+                "localPosition": {
+                    "type": "vec3",
+                    "value": "0,-0.154,0"
+                },
+                "_gameObject": {
+                    "type": "GameObject",
+                    "id": 7982
+                },
+                "children": {
+                    "type": "Array",
+                    "value": [
+                        {
+                            "type": "Transform",
+                            "id": 8094
+                        },
+                        {
+                            "type": "Transform",
+                            "id": -21502
+                        }
+                    ]
+                }
+            }
+        },
+        "8094": {
+            "type": "Transform",
+            "value": {
+                "localPosition": {
+                    "type": "vec3",
+                    "value": "0,0.11,0"
+                },
+                "_gameObject": {
+                    "type": "GameObject",
+                    "id": 8086
+                },
+                "children": {
+                    "type": "Array",
+                    "value": [
+                        {
+                            "type": "Transform",
+                            "id": -10288
+                        }
+                    ]
+                }
+            }
+        },
+        "-10288": {
+            "type": "Transform",
+            "value": {
+                "localPosition": {
+                    "type": "vec3",
+                    "value": "2.135,0,0"
+                },
+                "_gameObject": {
+                    "type": "GameObject",
+                    "id": -10286
+                },
+                "children": {
+                    "type": "Array",
+                    "value": []
+                }
+            }
+        },
+        "-21502": {
+            "type": "Transform",
+            "value": {
+                "localPosition": {
+                    "type": "vec3",
+                    "value": "0,0,1.868"
+                },
+                "_gameObject": {
+                    "type": "GameObject",
+                    "id": -21500
+                },
+                "children": {
+                    "type": "Array",
+                    "value": [
+                        {
+                            "type": "Transform",
+                            "id": -24312
+                        }
+                    ]
+                }
+            }
+        },
+        "-24312": {
+            "type": "Transform",
+            "value": {
+                "localPosition": {
+                    "type": "vec3",
+                    "value": "-2.155,0,-2.194"
+                },
+                "_gameObject": {
+                    "type": "GameObject",
+                    "id": -24310
+                },
+                "children": {
+                    "type": "Array",
+                    "value": []
+                }
+            }
+        }
+    },
+    "prefabData": {
+        "root": 7984
+    }
+}

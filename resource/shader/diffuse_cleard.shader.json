@@ -1,0 +1,27 @@
+{
+    "layer": "geometry",
+    "properties": [
+        "_MainTex('MainTex',Texture)='grid'{}",
+        "_AlphaCut('AlphaCut',Range(0.0,1.0)) = 0.5",
+        "_MainTex_ST('MainTex_ST',vector4) = (1,1,0,0)",
+        "_MainColor ('MainColor', Color) = (1,1,1,1)"
+    ],
+    "passes": {
+        "base": [
+            {
+                "showface": "all",
+                "vs":"diffuse",
+                "fs":"diffuse",
+                "cleardepth":true  
+            }
+        ],
+        "skin": [
+            {
+                "showface": "all",
+                "vs":"diffuse",
+                "fs":"diffuse",
+                "cleardepth":true
+            }
+        ]
+    }
+}

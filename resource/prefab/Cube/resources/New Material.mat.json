@@ -1,0 +1,11 @@
+{
+    "name": "New Material",
+    "srcshader": "Mobile/Diffuse",
+    "shader": "diffuse.shader.json",
+    "mapUniform": {
+        "_MainTex": {
+            "type": "Texture",
+            "value": "596689.imgdes.json"
+        }
+    }
+}

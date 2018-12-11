@@ -1,0 +1,15 @@
+{
+    "name": "Cerberus_A",
+    "srcshader": "Diffuse",
+    "shader": "diffuse.shader.json",
+    "mapUniform": {
+        "_Color": {
+            "type": "Vector",
+            "value": "RGBA(0.588, 0.588, 0.588, 1.000)"
+        },
+        "_MainTex": {
+            "type": "Texture",
+            "value": "Cerberus_A.imgdes.json"
+        }
+    }
+}

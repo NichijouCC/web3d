@@ -1,0 +1,1 @@
+{"name":"set_Town_01","srcshader":"Diffuse","shader":"diffuse.shader.json","mapUniform":{"_Color":{"type":"Vector","value":"RGBA(1.000, 1.000, 1.000, 1.000)"},"_MainTex":{"type":"Texture","value":"set_Town_01.imgdes.json"}}}

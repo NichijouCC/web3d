@@ -1,0 +1,1 @@
+{"name":"chos_town_002a","srcshader":"Gd3d/Diffuse","shader":"diffuse.shader.json","mapUniform":{"_MainTex":{"type":"Texture","value":"chos_town_002a.imgdes.json"},"_MainColor":{"type":"Vector","value":"RGBA(1.000, 1.000, 1.000, 1.000)"},"_AlphaCut":{"type":"Float","value":0},"_Cutoff":{"type":"Float","value":0.5}}}

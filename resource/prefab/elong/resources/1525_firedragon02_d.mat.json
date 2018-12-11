@@ -1,0 +1,11 @@
+{
+    "name": "1525_firedragon02_d",
+    "srcshader": "Mobile/Diffuse",
+    "shader": "diffuse.shader.json",
+    "mapUniform": {
+        "_MainTex": {
+            "type": "Texture",
+            "value": "1525_firedragon02_d.imgdes.json"
+        }
+    }
+}
