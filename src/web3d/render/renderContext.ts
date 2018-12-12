@@ -36,7 +36,7 @@ namespace web3d
         //----------------------frame data
         lightmapIndex:number;
         lightmapTilingOffset: MathD.vec4;
-        jointMatrixs:Float32Array;
+        // jointMatrixs:Float32Array;
         //-------------
         updateCamera(camera: Camera)
         {

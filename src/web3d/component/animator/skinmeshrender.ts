@@ -77,27 +77,12 @@ namespace web3d
                 // if(usemat==null) continue;
                 //usemat=usemat||assetMgr.getDefaultMaterial("deferror");
             
-                if(this.bindPlayer&&this.bindPlayer.curAni)
+                for(let i=0;i<this.joints.length;i++)
                 {
-                    for(let i=0;i<this.joints.length;i++)
-                    {
-                        MathD.mat4.multiply(this.joints[i].worldMatrix,this.bindPoses[i],this.jointMatrixs[i]);
-                    }
-                    renderContext.jointMatrixs=this.realjointMatrixData;
-                    renderMgr.draw(this.mesh,usemat,sm,DrawTypeEnum.SKIN);
-                }else
-                {
-                    for(let i=0;i<this.joints.length;i++)
-                    {
-                        MathD.mat4.multiply(this.joints[i].worldMatrix,this.bindPoses[i],this.jointMatrixs[i]);
-                    }
-                    renderContext.jointMatrixs=this.realjointMatrixData;
-                    renderMgr.draw(this.mesh,usemat,sm,DrawTypeEnum.SKIN);
-
-                    // renderContext.updateModel(this.gameObject.transform);
-                    // renderMgr.draw(this.mesh,usemat,sm,DrawTypeEnum.BASE);
+                    MathD.mat4.multiply(this.joints[i].worldMatrix,this.bindPoses[i],this.jointMatrixs[i]);
                 }
-                
+                usemat.setMatrix("u_jointMatirx",this.realjointMatrixData);
+                renderMgr.draw(this.mesh,usemat,sm,DrawTypeEnum.SKIN);
 
                 // for(let i=0;i<this.joints.length;i++)
                 // {

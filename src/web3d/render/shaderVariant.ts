@@ -28,7 +28,7 @@ namespace web3d
             this.AutoUniformDic["u_lightposs"]=()=>{return renderContext.vec4LightPos};
             this.AutoUniformDic["u_lightdirs"]=()=>{return renderContext.vec4LightDir};
             this.AutoUniformDic["u_spotangelcoss"]=()=>{return renderContext.floatLightSpotAngleCos};
-            this.AutoUniformDic["u_jointMatirx"]=()=>{return renderContext.jointMatrixs};
+            // this.AutoUniformDic["u_jointMatirx"]=()=>{return renderContext.jointMatrixs};
             
             
         }

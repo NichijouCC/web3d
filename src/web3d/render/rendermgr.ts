@@ -219,7 +219,7 @@ namespace web3d
         {
             if(mat==null)
             {
-                this.bindMat(assetMgr.getDefaultMaterial("defcolor"),drawType,programIndex);
+                // this.bindMat(assetMgr.getDefaultMaterial("defcolor"),drawType,programIndex);
                 return;
             }
             let shader=mat.getShader();

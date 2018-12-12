@@ -4263,7 +4263,6 @@ declare namespace web3d {
         curCamera: Camera;
         lightmapIndex: number;
         lightmapTilingOffset: MathD.vec4;
-        jointMatrixs: Float32Array;
         updateCamera(camera: Camera): void;
         updateOverlay(): void;
         updateModel(model: Transform): void;
