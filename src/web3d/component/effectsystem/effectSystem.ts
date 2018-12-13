@@ -13,7 +13,7 @@ namespace web3d
         materials: Material[];
         gameObject: GameObject;
         layer: RenderLayerEnum=RenderLayerEnum.Transparent;
-        mask: CullingMask=CullingMask.default;
+        mask: LayerMask=LayerMask.default;
         queue: number=10;
 
         delayTime:number=0;

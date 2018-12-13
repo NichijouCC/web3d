@@ -219,6 +219,7 @@ namespace web3d
         {
             let pass=new ShaderPass();
             shaderpass[this.drawtypeDic[type]]=pass;
+            pass.drawtype=this.drawtypeDic[type];
             let taskCount=json.length;
             let errs:Error[]=[];
     

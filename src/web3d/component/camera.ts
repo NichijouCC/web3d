@@ -72,7 +72,7 @@ namespace web3d
 
         // clearType:webGraph.ClearType=webGraph.ClearType.ColorAndDepth;
     
-        cullingMask: CullingMask = CullingMask.default | CullingMask.ui;
+        cullingMask: LayerMask = LayerMask.default | LayerMask.ui;
         viewport: MathD.Rect=MathD.Rect.create(0,0,1,1);
         // private viewPortPixel=MathD.Rect.create();
         // get pixelWidth()

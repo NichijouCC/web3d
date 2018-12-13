@@ -9,7 +9,7 @@ namespace web3d
         static type:string="SimpleSkinMeshRender";
 
         gameObject: GameObject;
-        mask: CullingMask= CullingMask.default;
+        mask: LayerMask= LayerMask.default;
         layer: RenderLayerEnum=RenderLayerEnum.Geometry;
         queue: number = 0;
 

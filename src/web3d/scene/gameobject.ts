@@ -40,7 +40,7 @@ namespace web3d
         beVisible = true;
 
         @Attribute
-        mask: CullingMask= CullingMask.default;
+        mask: LayerMask= LayerMask.default;
         // @Attribute
         // layer: number = 0;//物件有一个layer 取值范围0~31，各种功能都可以用layer mask 去过滤作用范围
 

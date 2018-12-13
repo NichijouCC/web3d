@@ -10,7 +10,7 @@ namespace web3d
     {
         static type:string="MeshRender";
 
-        mask: CullingMask=CullingMask.default;
+        mask: LayerMask=LayerMask.default;
         gameObject: GameObject;
 
         private _layer: RenderLayerEnum=RenderLayerEnum.Geometry;

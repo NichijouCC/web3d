@@ -47,15 +47,37 @@ namespace web3d
             BoundingSphere.recycle(sphere);
             return result;
         }
-        intersectSphere(sphere:BoundingSphere):boolean
+        /**
+         * 和包围球检测相交
+         * @param sphere 包围球
+         * @param mat 用于变换包围球
+         */
+        intersectSphere(sphere:BoundingSphere,mat:MathD.mat4=null):boolean
         {
             let planes = this.planes;
-            let center = sphere.center;
-            let negRadius = - sphere.radius;
-            for ( let i = 0; i < 6; i ++ ) {
-                let distance:number = planes[ i ].distanceToPoint( center );
-                if ( distance < negRadius ) {
-                    return false;
+            if(mat!=null)
+            {
+                let clonesphere=sphere.clone();
+                clonesphere.applyMatrix(mat);
+
+                let center = clonesphere.center;
+                let negRadius = - clonesphere.radius;
+                for ( let i = 0; i < 6; i ++ ) {
+                    let distance:number = planes[ i ].distanceToPoint( center );
+                    if ( distance < negRadius ) {
+                        return false;
+                    }
+                }
+                BoundingSphere.recycle(sphere);  
+            }else
+            {
+                let center = sphere.center;
+                let negRadius = - sphere.radius;
+                for ( let i = 0; i < 6; i ++ ) {
+                    let distance:number = planes[ i ].distanceToPoint( center );
+                    if ( distance < negRadius ) {
+                        return false;
+                    }
                 }
             }
             return true;

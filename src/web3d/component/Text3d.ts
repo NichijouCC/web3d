@@ -12,7 +12,7 @@ namespace web3d
 
         layer: RenderLayerEnum=RenderLayerEnum.Transparent;
         queue: number=0;
-        mask: CullingMask=CullingMask.default;
+        mask: LayerMask=LayerMask.default;
 
         materials: Material[]=[];
         BeRenderable(): boolean {

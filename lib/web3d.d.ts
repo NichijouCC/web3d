@@ -1587,7 +1587,7 @@ declare namespace web3d {
         set(p0: Plane, p1: Plane, p2: Plane, p3: Plane, p4: Plane, p5: Plane): void;
         setFromMatrix(me: MathD.mat4): Frustum;
         intersectRender(render: IRender): boolean;
-        intersectSphere(sphere: BoundingSphere): boolean;
+        intersectSphere(sphere: BoundingSphere, mat?: MathD.mat4): boolean;
     }
 }
 declare namespace web3d {
@@ -2941,7 +2941,7 @@ declare namespace web3d {
         static type: string;
         layer: RenderLayerEnum;
         queue: number;
-        mask: CullingMask;
+        mask: LayerMask;
         materials: Material[];
         BeRenderable(): boolean;
         BeInstantiable(): boolean;
@@ -3040,7 +3040,7 @@ declare namespace web3d {
         backgroundColor: MathD.color;
         dePthValue: number;
         stencilValue: number;
-        cullingMask: CullingMask;
+        cullingMask: LayerMask;
         viewport: MathD.Rect;
         projectionType: ProjectionEnum;
         fov: number;
@@ -3129,7 +3129,7 @@ declare namespace web3d {
 declare namespace web3d {
     class MeshRender implements IRender {
         static type: string;
-        mask: CullingMask;
+        mask: LayerMask;
         gameObject: GameObject;
         private _layer;
         readonly layer: RenderLayerEnum;
@@ -3215,7 +3215,7 @@ declare namespace web3d {
     class SimpleSkinMeshRender implements IRender {
         static type: string;
         gameObject: GameObject;
-        mask: CullingMask;
+        mask: LayerMask;
         layer: RenderLayerEnum;
         queue: number;
         materials: Material[];
@@ -3267,7 +3267,7 @@ declare namespace web3d {
     class SkinMeshRender implements IRender {
         static type: string;
         gameObject: GameObject;
-        mask: CullingMask;
+        mask: LayerMask;
         layer: RenderLayerEnum;
         queue: number;
         materials: Material[];
@@ -3357,7 +3357,7 @@ declare namespace web3d {
         materials: Material[];
         gameObject: GameObject;
         layer: RenderLayerEnum;
-        mask: CullingMask;
+        mask: LayerMask;
         queue: number;
         delayTime: number;
         private fps;
@@ -4184,6 +4184,7 @@ declare namespace web3d {
 }
 declare namespace web3d {
     class ShaderPass {
+        drawtype: DrawTypeEnum;
         program: webGraph.ShaderProgram[];
     }
 }
@@ -4223,6 +4224,72 @@ declare namespace web3d {
         declareEboWithData(ebodata: Uint16Array | Uint32Array): void;
         refreshEboWithData(ebodata: Uint16Array | Uint32Array): void;
         dispose(): void;
+    }
+}
+declare namespace web3d {
+    class Graph {
+        renderlist: RenderList;
+        renderCameras: Camera[];
+        renderLights: Light[];
+        constructor();
+        beforeRender(): void;
+        renderScene(scen: Scene): void;
+        private _fillRenderer;
+        renderOnce(): void;
+        globalDrawType: DrawTypeEnum;
+        activeInstanceDrawType: boolean;
+        private instanceCount;
+        draw(mesh: Mesh, mat: Material, submesh: subMeshInfo, localDrawType: DrawTypeEnum): void;
+        private InstanceMaxCount;
+        private instanceDataInit;
+        private realPosDataArr;
+        private realRotDataArr;
+        private realScaleDataArr;
+        private posArr;
+        private rotArr;
+        private scaleArr;
+        private posAtt;
+        private rotAtt;
+        private scaleAtt;
+        private instanceRenderAll;
+        bindMat(mat: Material, drawType: DrawTypeEnum, programIndex?: number): void;
+        bindShaderPass(pass: ShaderPass, programIndex: number, uniformDic: {
+            [id: string]: any;
+        }, defUniform: {
+            [id: string]: any;
+        }): void;
+        drawSubMesh(mesh: Mesh, mat: Material, matrix?: MathD.mat4, drawType?: DrawTypeEnum, layer?: LayerMask, submeshIndex?: number, cam?: Camera): void;
+        drawMesh(mesh: Mesh, mat: Material[], matrix: MathD.mat4, drawType: DrawTypeEnum, layer: LayerMask, cam?: Camera): void;
+        drawMeshNow(mesh: Mesh, submeshIndex: number): void;
+        drawObjectsNow(cam: Camera, renderlist: RenderList): void;
+    }
+    interface IRenderItem {
+        mesh: Mesh;
+        mat: Material;
+        matrix: MathD.mat4;
+        drawType: DrawTypeEnum;
+        layermask: LayerMask;
+        submeshIndex: number;
+        cam?: Camera;
+    }
+    class RenderList {
+        private layerLists;
+        constructor();
+        clear(): void;
+        addRenderItem(item: IRenderItem): void;
+        setLayerSortFunc(layer: RenderLayerEnum, queuesortfunc: (a: IRenderItem[]) => void): void;
+        foreach(fuc: (item: IRenderItem) => void): void;
+    }
+    class LayerList {
+        private layer;
+        private queDic;
+        private queArr;
+        constructor(layerType: string, queueSortFunc?: (arr: IRenderItem[]) => void);
+        queueSortFunc: (arr: IRenderItem[]) => void;
+        addRender(item: IRenderItem): void;
+        sort(): void;
+        foreach(fuc: (item: IRenderItem) => void): void;
+        clear(): void;
     }
 }
 declare namespace web3d {
@@ -4296,6 +4363,14 @@ declare namespace web3d {
         private scaleAtt;
         private instanceRenderAll;
         bindMat(mat: Material, drawType: DrawTypeEnum, programIndex?: number): void;
+        bindShaderPass(pass: ShaderPass, programIndex: number, uniformDic: {
+            [id: string]: any;
+        }, defUniform: {
+            [id: string]: any;
+        }): void;
+        private renderlist;
+        drawSubMesh(mesh: Mesh, mat: Material, matrix?: MathD.mat4, drawType?: DrawTypeEnum, layer?: LayerMask, submeshIndex?: number, cam?: Camera): void;
+        drawMesh(mesh: Mesh, mat: Material[], matrix: MathD.mat4, drawType: DrawTypeEnum, layer: LayerMask, cam?: Camera): void;
         drawMeshNow(mesh: Mesh, submeshIndex: number): void;
     }
     enum RenderLayerEnum {
@@ -4305,7 +4380,7 @@ declare namespace web3d {
         Transparent = 3000,
         Overlay = 4000
     }
-    enum CullingMask {
+    enum LayerMask {
         ui = 1,
         default = 2,
         editor = 4,
@@ -4317,7 +4392,7 @@ declare namespace web3d {
     interface IRender extends INodeComponent {
         layer: RenderLayerEnum;
         queue: number;
-        mask: CullingMask;
+        mask: LayerMask;
         Render(): any;
         materials: Material[];
         BeRenderable(): boolean;
@@ -4375,7 +4450,7 @@ declare namespace web3d {
     class GameObject {
         name: string;
         beVisible: boolean;
-        mask: CullingMask;
+        mask: LayerMask;
         transform: Transform;
         comps: {
             [type: string]: INodeComponent;
