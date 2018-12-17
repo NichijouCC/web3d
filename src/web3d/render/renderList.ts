@@ -1,110 +1,117 @@
-// namespace web3d
-// {
-//     export class RenderList
-//     {
-//         // items:IRenderItem[]=[];KC
-//         items:{[layer:number]:{[queue:number]:IRenderItem[]}}={};
-//         sortFunc:{[layer:number]:(a:IRenderItem,b:IRenderItem)=>number}={};
-//         private deafultSortFunc:(a:IRenderItem,b:IRenderItem)=>number;
-//         constructor()
-//         {
-//             this.setLayerSortFunc(RenderLayerEnum.Transparent,(a:IRenderItem,b:IRenderItem)=>{
+namespace web3d
+{
+ /**
+     * @private
+     */
+    export class RenderList
+    {
+        private layerLists:{[layer:number]:LayerList}={};
+        constructor()
+        {
+            this.layerLists[RenderLayerEnum.Background]=new LayerList("Background");
+            this.layerLists[RenderLayerEnum.Geometry]=new LayerList("Geometry");
+            this.layerLists[RenderLayerEnum.AlphaTest]=new LayerList("AlphaTest");
+            this.layerLists[RenderLayerEnum.Transparent]=new LayerList("Transparent");
+            this.layerLists[RenderLayerEnum.Overlay]=new LayerList("Overlay");
+        }
+        clear()
+        {
+            for(let key in this.layerLists)
+            {
+                this.layerLists[key].clear();
+            }
+        }
+        addRenderItem(item:IRenderItem)
+        {
+            let layerIndex=item.mat.layer;
+            this.layerLists[layerIndex].addRender(item);
+        }
+        setLayerSortFunc(layer:RenderLayerEnum,queuesortfunc:(a:IRenderItem[])=>void)
+        {
+            this.layerLists[layer].queueSortFunc=queuesortfunc;
+        }
+        foreach(fuc:(item:IRenderItem)=>void)
+        {
+            this.layerLists[RenderLayerEnum.Background].foreach(fuc);
+            this.layerLists[RenderLayerEnum.Geometry].foreach(fuc);
+            this.layerLists[RenderLayerEnum.AlphaTest].foreach(fuc);
+            this.layerLists[RenderLayerEnum.Transparent].foreach(fuc);
+            this.layerLists[RenderLayerEnum.Overlay].foreach(fuc);
+        }
 
-//                 if(a.mat.queue!=b.mat.queue)
-//                 {
-//                     return b.mat.queue-a.mat.queue;
-//                 }else
-//                 {
-//                     let matrixView = renderContext.matrixView;
-                
-//                     let ax = a.matrix[12],ay = a.matrix[13],az = a.matrix[14];
-//                     let aw = matrixView[3] * ax + matrixView[7] * ay + matrixView[11] * az + matrixView[15];
-//                     let aviewz = (matrixView[2] * ax + matrixView[6] * ay + matrixView[10] * az + matrixView[14]) / aw;
-    
-//                     let bx = b.matrix[12],by = b.matrix[13],bz = b.matrix[14];
-//                     let bw = matrixView[3] * bx + matrixView[7] * by + matrixView[11] * bz + matrixView[15];
-//                     let bviewz = (matrixView[2] * bx + matrixView[6] * by + matrixView[10] * bz + matrixView[14]) / bw;
-    
-//                     let out=bviewz- aviewz;
-//                     return out;
-//                 }
-//             });
+        private static map:{[id:number]:RenderList}={};
+        static get(cam:Camera):RenderList
+        {
+            if(this.map[cam.gameObject.id]!=null)
+            {
+                return this.map[cam.gameObject.id];
+            }else
+            {
+                let list=new RenderList();
+                this.map[cam.gameObject.id]=list;
+                return list;
+            }
+        }
+    }
 
-//             this.deafultSortFunc=(a:IRenderItem,b:IRenderItem)=>{
-//                 if(a.mat.queue!=b.mat.queue)
-//                 {
-//                     return b.mat.queue-a.mat.queue;
-//                 }
-//                 else if(b.mat.getShader().guid!=a.mat.getShader().guid)
-//                 {
-//                     return b.mat.getShader().guid-a.mat.getShader().guid;
-//                 }
-//             }
-//         }
+    export class LayerList
+    {
+        private layer:string;
 
-//         clear()
-//         {
-//             this.items=[];
-//         }
-//         addRenderItem(item:IRenderItem)
-//         {
-//             if(this.items[item.mat.layer]==null)
-//             {
-//                 this.items[item.mat.layer]=[];
-//             }
-//             if(this.items[item.mat.layer][item.mat.queue]==null)
-//             {
-//                 this.items[item.mat.layer][item.mat.queue]=[];
-//             }
-//             this.items[item.mat.layer][item.mat.queue].push(item);
-//         }
+        private queDic:{[queue:number]:IRenderItem[]}={};
+        private queArr:number[]=[];
 
-//         setLayerSortFunc(layer:RenderLayerEnum,sortfunc:(a:IRenderItem,b:IRenderItem)=>number)
-//         {
-//             this.sortFunc[layer]=sortfunc;
-//         }
+        constructor(layerType:string,queueSortFunc:(arr:IRenderItem[])=>void=null)
+        {
+            this.layer=layerType;
+            this.queueSortFunc=queueSortFunc;
+        }
+        queueSortFunc:(arr:IRenderItem[])=>void;
 
-//         sort()
-//         {
-//             for(let key in this.items)
-//             {
-//                 let layerArr=this.items[key]
-//                 for(let k in layerArr)
-//                 {
-//                     if(this.sortFunc[key]!=null)
-//                     {
-//                         layerArr[k].sort((a,b)=>{
-//                             return this.sortFunc[key](a,b);
-//                         });
-//                     }else
-//                     {
-//                         layerArr[k].sort((a,b)=>{
-//                             return this.deafultSortFunc(a,b);
-//                         });
-//                     }
-//                 }
-//             }
-//         }
 
-//         foreachAllLayer(fuc:(item:IRenderItem)=>void)
-//         {
-//             this.foreachLayer(RenderLayerEnum.Background,fuc);
-//             this.foreachLayer(RenderLayerEnum.Geometry,fuc);
-//             this.foreachLayer(RenderLayerEnum.AlphaTest,fuc);
-//             this.foreachLayer(RenderLayerEnum.Transparent,fuc);
-//             this.foreachLayer(RenderLayerEnum.Overlay,fuc);
-//         }
+        addRender(item:IRenderItem)
+        {
+            let queue=item.mat.queue;
+            let value=this.queDic[queue];
+            if(value==null)
+            {
+                this.queDic[queue]=[];
+                this.queArr.push(queue);
+            }
+            this.queDic[queue].push(item);
+        }
 
-//         foreachLayer(layer:RenderLayerEnum,fuc:(item:IRenderItem)=>void)
-//         {
-//             let layerarr=this.items[RenderLayerEnum.Background];
-//             for(let key in layerarr)
-//             {
-//                 layerarr[key].forEach((item)=>{
-//                     fuc(item);
-//                 });
-//             }
-//         }
+        sort()
+        {
+            if(this.queArr.length>1)
+            {
+                this.queArr.sort();
+            }
+            for(let i=0,len1=this.queArr.length;i<len1;i++)
+            {
+                let arr=this.queDic[this.queArr[i]];
+                if(this.queueSortFunc)
+                {
+                    this.queueSortFunc(arr);
+                }
+            }
+        }
+        foreach(fuc:(item:IRenderItem)=>void)
+        {
+            for(let i=0,len1=this.queArr.length;i<len1;i++)
+            {
+                let arr=this.queDic[this.queArr[i]];
+                arr.forEach((item)=>{
+                    fuc(item);
+                });
+            }
+        }
 
-//     }
-// }
+        clear()
+        {
+            this.queDic={};
+            this.queArr.length=0;
+        }
+
+    }
+}

@@ -14,7 +14,7 @@ namespace web3d
     export class Rendermgr
     {
         renderlistall: renderListAll;
-
+        renderlist:RenderList=new RenderList();
         renderCameras: Camera[] = [];//需要camera class 
         renderLights: Light[] = [];//需要光源 class
 
@@ -249,7 +249,6 @@ namespace web3d
             webGraph.render.applyMatUniforms(program,ShaderVariant.AutoUniformDic,uniformDic,defUniform);
         }
 
-        private renderlist:RenderList=new RenderList();
         drawSubMesh(mesh:Mesh,mat:Material,matrix:MathD.mat4=null,drawType:DrawTypeEnum=null,layer:LayerMask=null,submeshIndex:number=null,cam:Camera=null)
         {
             if(mesh==null||mat==null) return;

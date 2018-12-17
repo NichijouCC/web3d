@@ -28,6 +28,17 @@ namespace web3d
         Dispose();
     }
 
+    class ObjID
+    {
+        private static idAll: number = 0;
+        static next(): number
+        {
+            let next = ObjID.idAll;
+            ObjID.idAll++;
+            return next;
+        }
+    }
+
     /**
      * gameObject类 对应unity中gameObject概念
      */
@@ -78,11 +89,13 @@ namespace web3d
         // light: Light;
         // collider: Boxcollider;
 
+        readonly id:number;
 
         constructor()
         {
             this.transform=new Transform();
             this.transform.gameObject=this;
+            this.id=ObjID.next();
         }
         /**
          * 初始化 主要是组件的初始化
