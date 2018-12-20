@@ -1,6 +1,8 @@
 
-###  **web3d是 unity3d like 风格的 webgl 3d游戏引擎；** 
+###  **web3d是 unity3d like 风格（接口、命名）的 webgl 3d游戏引擎，研究学习webgl、图形、引擎开发技术。本项目起始于2017.06，希望对原生webgl开发感兴趣的各位加入，qq群334522247** 
 
+###项目使用：
+    使用vscode打开本项目，安装拓展debugger for chrome/preview on web server,ctrl+shift+r启动服务器，F5即可跑起dome样例。
 
 ### 代码结构：
     web3d/code 为样例目录；
@@ -10,19 +12,18 @@
 ### 项目当前情况简介：
 
     1.支持加载.gltf格式资源（之前的资源结构舍弃），可以自行拓展资源格式。
-    2.数学库包含有glmatrix和自行添加的部分，支持mat4，mat2d、vec4、vec3等 。
+    2.数学库参考自glmatrix支持mat4，mat2d、vec4、vec3等 。
     3.gameobject、transform、scene 概念可类比unity3d。
-    4.gameoject 、componets 类比unity3d采用ecs结构，可自行拓展component
-    5.基础组件有meshfilter、meshrender。
+    5.基础组件有meshfilter、meshrender、skinmeshrender。
     6.完成骨骼动画播放、融合。
     7.ui含有基础render框架，包含2d组件仅有rawiamge。
     8.font支持动态图集，以及基于html的hud lable。
     
 
-### 研究内容简介：
+### 研究内容ing简介：
 
     1.transform的脏标识，减少每帧必须的matrix计算。
-    2.骨骼动画的高效实现，bone 对应的matrix通过uniform直接穿过去。这种方案 空间换时间，不利于骨骼融合。
+    2.骨骼动画的高效实现。
     3.render流程优化。
         包含有：1.state cache，例如ztest、blend等
                 2.program cahce.
