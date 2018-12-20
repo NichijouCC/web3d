@@ -1,5 +1,5 @@
 
-###  **本项目目的是在webgl 3d游戏引擎中研究学习webgl、图形、引擎开发技术并进行实践。本项目起始于2017.06，开发工具vscode+typescript。目前项目有很多坑，欢迎大家来填，qq群334522247** 
+###  **本项目目的是在webgl 3d游戏引擎中研究学习webgl、图形、引擎开发技术并进行实践。本项目起始于2017.06，开发工具vscode+typescript。目前项目有很多坑，欢迎大家来填，QQ交流讨论群334522247** 
 
 ### 项目使用：
     使用vscode打开本项目，安装拓展debugger for chrome/preview on web server,ctrl+shift+r启动服务器，F5即可跑起dome样例。
