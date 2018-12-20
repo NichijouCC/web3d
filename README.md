@@ -1,5 +1,5 @@
 
-###  **web3d是 unity3d like 风格（接口、命名）的 webgl 3d游戏引擎，研究学习webgl、图形、引擎开发技术。开发工具vscode+typescript。本项目起始于2017.06，希望对原生webgl开发感兴趣的各位加入，qq群334522247** 
+###  **本项目目的是在webgl 3d游戏引擎中研究学习webgl、图形、引擎开发技术并进行实践。本项目起始于2017.06，开发工具vscode+typescript。目前项目有很多坑，欢迎大家来填，qq群334522247** 
 
 ### 项目使用：
     使用vscode打开本项目，安装拓展debugger for chrome/preview on web server,ctrl+shift+r启动服务器，F5即可跑起dome样例。
@@ -11,7 +11,7 @@
 
 ### 项目当前情况简介：
 
-    1.支持加载.gltf格式资源（之前的资源结构舍弃），可以自行拓展资源格式。
+    1.支持加载.gltf格式资源，可以自行拓展资源格式。
     2.数学库参考自glmatrix支持mat4，mat2d、vec4、vec3等 。
     3.gameobject、transform、scene 概念可类比unity3d。
     5.基础组件有meshfilter、meshrender、skinmeshrender。
