@@ -1,7 +1,7 @@
 
 ###  **web3d是 unity3d like 风格（接口、命名）的 webgl 3d游戏引擎，研究学习webgl、图形、引擎开发技术。本项目起始于2017.06，希望对原生webgl开发感兴趣的各位加入，qq群334522247** 
 
-###项目使用：
+### 项目使用：
     使用vscode打开本项目，安装拓展debugger for chrome/preview on web server,ctrl+shift+r启动服务器，F5即可跑起dome样例。
 
 ### 代码结构：
