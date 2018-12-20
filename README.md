@@ -1,5 +1,5 @@
 
-###  **本项目目的是在webgl 3d游戏引擎中研究学习webgl、图形、引擎开发技术并进行实践，unity3d like（接口like，架构努力ing）。目前项目有很多坑，欢迎有志之士入坑来战，QQ交流讨论群334522247** 
+###  **本项目目的是在webgl 3d游戏引擎中研究学习webgl、图形、引擎开发技术并进行实践，unity3d like 风格（接口like，架构努力ing）。目前项目有很多坑，欢迎有志之士入坑来战，QQ交流讨论群334522247** 
 
 ### 项目使用：
     开发工具vscode+typescript,使用vscode打开本项目，安装拓展debugger for chrome/preview on web server,ctrl+shift+r启动服务器，F5即可跑起dome样例。
