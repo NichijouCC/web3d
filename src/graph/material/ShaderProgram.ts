@@ -70,7 +70,7 @@ namespace webGraph
         }
     
         private cacheUniformDic:{[name:string]:any}={};
-        applyUniformWithCache(name:string,value:any,defValue:any)
+        applyUniformWithCache(name:string,value:any)
         {
             let data=this.uniformDic[name];
             let equalFuc=UniformSetter.uniformEqualDic[data.type];
@@ -80,12 +80,12 @@ namespace webGraph
                 return;
             };
             this.cacheUniformDic[name]=cacheValue;
-            this.applyUniform(name,value,defValue);
+            this.applyUniform(name,value);
         }
-        applyUniform(name:string,value:any,defValue:any)
+        applyUniform(name:string,value:any)
         {
             let data=this.uniformDic[name];
-            UniformSetter.applyUniform(data.type,data.location,value,defValue);
+            UniformSetter.applyUniform(data.type,data.location,value);
         }
     }
 }

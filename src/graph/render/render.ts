@@ -125,66 +125,48 @@ namespace webGraph
         /**
          * uniform 传参
          */
-        static applyMatUniforms(program:ShaderProgram,AutoUniformDic:{[uniform:string]:any},SetValueDic:{[uniform:string]:any},defUniformDic:{[uniform:string]:any})
+        static applyMatUniforms(program:ShaderProgram,SetValueDic:{[uniform:string]:any})
         {
             UniformSetter.texIndex=0;
             if(this.BeUseUniformCache)
             {
-                this.applyUniformsWithCache(program,AutoUniformDic,SetValueDic,defUniformDic);
+                this.applyUniformsWithCache(program,SetValueDic);
             }else
             {
-                this.applyUniformsDirectly(program,AutoUniformDic,SetValueDic,defUniformDic);
+                this.applyUniformsDirectly(program,SetValueDic);
             }
         }
-        private static applyUniformsDirectly(program:ShaderProgram,AutoUniformDic:{[uniform:string]:any},SetValueDic:{[uniform:string]:any},defUniformDic:{[uniform:string]:any})
+        private static applyUniformsDirectly(program:ShaderProgram,SetValueDic:{[uniform:string]:any})
         {
-            for(let key in program.uniformDic)
+            // for(let key in program.uniformDic)
+            // {
+            //     let uniformValue:any=SetValueDic[key];
+                
+            //     program.applyUniform(key,uniformValue);
+            // }
+
+            for(let key in SetValueDic)
             {
-                let uniformValue:any;
-                if(AutoUniformDic[key]!=null)
+                if(program.uniformDic[key]!=null)
                 {
-                    let func=AutoUniformDic[key];
-                    uniformValue=func();
-                    // if(uniformValue==null)
-                    // {
-                    //     console.error("???");
-                    // }               
-                }else if(SetValueDic[key]!=null)
-                {
-                    uniformValue=SetValueDic[key];
+                    program.applyUniform(key,SetValueDic[key]);
                 }
-                let defvalue;
-                if(defUniformDic[key]!=null)
-                {
-                    defvalue=defUniformDic[key].value;
-                    // console.error("uniform: "+key+" shader:"+program.name);
-                }
-                // if(uniformValue==null&&defvalue==null)
-                // {
-                //     console.error("???");
-                // }
-                program.applyUniform(key,uniformValue,defvalue);
             }
         }
-        private static applyUniformsWithCache(program:ShaderProgram,AutoUniformDic:{[uniform:string]:any},SetValueDic:{[uniform:string]:any},defUniformDic:{[uniform:string]:any})
+        private static applyUniformsWithCache(program:ShaderProgram,SetValueDic:{[uniform:string]:any})
         {
-            for(let key in program.uniformDic)
+            // for(let key in program.uniformDic)
+            // {
+            //     let uniformValue:any=SetValueDic[key];
+            //     program.applyUniformWithCache(key,uniformValue);
+            // }
+
+            for(let key in SetValueDic)
             {
-                let uniformValue,defvalue;
-                if(AutoUniformDic[key]!=null)
+                if(program.uniformDic[key]!=null)
                 {
-                    let func=AutoUniformDic[key];
-                    uniformValue=func();                 
-                }else if(SetValueDic[key]!=null)
-                {
-                    uniformValue=SetValueDic[key];
+                    program.applyUniformWithCache(key,SetValueDic[key]);
                 }
-                if(defUniformDic[key]!=null)
-                {
-                    defvalue=defUniformDic[key].value;
-                    // console.error("uniform: "+key+" shader:"+program.name);
-                }
-                program.applyUniformWithCache(key,uniformValue,defvalue);
             }
         }
     

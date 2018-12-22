@@ -29,8 +29,31 @@ namespace web3d
             this.AutoUniformDic["u_lightdirs"]=()=>{return renderContext.vec4LightDir};
             this.AutoUniformDic["u_spotangelcoss"]=()=>{return renderContext.floatLightSpotAngleCos};
             // this.AutoUniformDic["u_jointMatirx"]=()=>{return renderContext.jointMatrixs};
-            
-            
+        }
+
+        static getAutoUniformValue(uniform:string):any
+        {
+            return this.AutoUniformDic[uniform];
+        }
+
+        static refreshMaterialUniform(program:webGraph.ShaderProgram,uniformMap:{[id:string]:any},defuniform:{[id:string]:any})
+        {
+            for(let key in program.uniformDic)
+            {
+                let itemName=program.uniformDic[key].name;
+                let fuc=this.AutoUniformDic[itemName];
+                if(fuc!=null)
+                {
+                    uniformMap[itemName]=fuc();
+                }else
+                {
+                    if(uniformMap[itemName]==null)
+                    {
+                        uniformMap[itemName]=defuniform[itemName].value;
+                    }
+                }
+                
+            }
         }
     }
 }

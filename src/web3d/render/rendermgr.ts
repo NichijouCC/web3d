@@ -125,7 +125,8 @@ namespace web3d
                     webGraph.render.BindeVertexData(this.scaleAtt);
 
                     // ShaderVariant.PassAllUniforms(usingProgram,mat);
-                    webGraph.render.applyMatUniforms(usingProgram,ShaderVariant.AutoUniformDic,mat.UniformDic,mat.getShader().mapUniformDef);
+                    ShaderVariant.refreshMaterialUniform(usingProgram,mat.UniformDic,mat.getShader().mapUniformDef);
+                    webGraph.render.applyMatUniforms(usingProgram,mat.UniformDic);
 
                     webgl.drawElementsInstanced(submesh.renderType,submesh.size,webgl.UNSIGNED_SHORT,submesh.start,this.instanceCount);
                 }
@@ -245,8 +246,9 @@ namespace web3d
                 this.bindMat(assetMgr.getDefaultMaterial("defcolor"),pass.drawtype,programIndex);
                 return;
             }
+            ShaderVariant.refreshMaterialUniform(program,uniformDic,defUniform);
             webGraph.render.bindProgram(program);
-            webGraph.render.applyMatUniforms(program,ShaderVariant.AutoUniformDic,uniformDic,defUniform);
+            webGraph.render.applyMatUniforms(program,uniformDic);
         }
 
         drawSubMesh(mesh:Mesh,mat:Material,matrix:MathD.mat4=null,drawType:DrawTypeEnum=null,layer:LayerMask=null,submeshIndex:number=null,cam:Camera=null)

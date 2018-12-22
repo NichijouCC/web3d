@@ -11,8 +11,9 @@ namespace web3d
                 this.bindMat(assetMgr.getDefaultMaterial("defcolor"),pass.drawtype,programIndex);
                 return;
             }
+            ShaderVariant.refreshMaterialUniform(program,uniformDic,defUniform);
             webGraph.render.bindProgram(program);
-            webGraph.render.applyMatUniforms(program,ShaderVariant.AutoUniformDic,uniformDic,defUniform);
+            webGraph.render.applyMatUniforms(program,uniformDic);
         }
 
         static bindMat(mat:Material,drawType:DrawTypeEnum,programIndex:number=0)

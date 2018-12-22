@@ -3,12 +3,12 @@ namespace webGraph
     export class UniformSetter
     {
         static texIndex=0;        
-        static unifomeApplyDic:{[type:number]:(location:WebGLUniformLocation,value:any,defValue?:any)=>void}={};
+        static unifomeApplyDic:{[type:number]:(location:WebGLUniformLocation,value:any)=>void}={};
         static uniformEqualDic:{[type:number]:(value1:any,value2:any)=>boolean}={};
-        static applyUniform(type:UniformTypeEnum,location:any,value:any,defValue:any)
+        static applyUniform(type:UniformTypeEnum,location:any,value:any)
         {
             let func=this.unifomeApplyDic[type];
-            func(location,value,defValue);
+            func(location,value);
         }
     
         static initUniformDic()
@@ -19,80 +19,81 @@ namespace webGraph
     
         static InitUniformApplyDic()
         {
-            this.unifomeApplyDic[UniformTypeEnum.FLOAT]=(location,value,defValue)=>{
-                rendingWebgl.uniform1f(location, value||defValue);
+            this.unifomeApplyDic[UniformTypeEnum.FLOAT]=(location,value)=>{
+                rendingWebgl.uniform1f(location, value);
             };
-            this.unifomeApplyDic[UniformTypeEnum.FLOATV]=(location,value,defValue)=>{
-                rendingWebgl.uniform1fv(location, value||defValue);
+            this.unifomeApplyDic[UniformTypeEnum.FLOATV]=(location,value)=>{
+                rendingWebgl.uniform1fv(location, value);
             };
-            this.unifomeApplyDic[UniformTypeEnum.FLOAT_VEC2]=(location,value,defValue)=>{
-                rendingWebgl.uniform2fv(location, value||defValue);
+            this.unifomeApplyDic[UniformTypeEnum.FLOAT_VEC2]=(location,value)=>{
+                rendingWebgl.uniform2fv(location, value);
             };
-            this.unifomeApplyDic[UniformTypeEnum.FLOAT_VEC2V]=(location,value,defValue)=>{
-                rendingWebgl.uniform2fv(location, value||defValue);
+            this.unifomeApplyDic[UniformTypeEnum.FLOAT_VEC2V]=(location,value)=>{
+                rendingWebgl.uniform2fv(location, value);
             };
-            this.unifomeApplyDic[UniformTypeEnum.FLOAT_VEC3]=(location,value,defValue)=>{
-                rendingWebgl.uniform3fv(location, value||defValue);
+            this.unifomeApplyDic[UniformTypeEnum.FLOAT_VEC3]=(location,value)=>{
+                rendingWebgl.uniform3fv(location, value);
             };
-            this.unifomeApplyDic[UniformTypeEnum.FLOAT_VEC3V]=(location,value,defValue)=>{
-                rendingWebgl.uniform3fv(location, value||defValue);
+            this.unifomeApplyDic[UniformTypeEnum.FLOAT_VEC3V]=(location,value)=>{
+                rendingWebgl.uniform3fv(location, value);
             };
-            this.unifomeApplyDic[UniformTypeEnum.FLOAT_VEC4]=(location,value,defValue)=>{
-                rendingWebgl.uniform4fv(location, value||defValue);
+            this.unifomeApplyDic[UniformTypeEnum.FLOAT_VEC4]=(location,value)=>{
+                rendingWebgl.uniform4fv(location, value);
             };
-            this.unifomeApplyDic[UniformTypeEnum.FLOAT_VEC4V]=(location,value,defValue)=>{
-                rendingWebgl.uniform4fv(location, value||defValue);
+            this.unifomeApplyDic[UniformTypeEnum.FLOAT_VEC4V]=(location,value)=>{
+                rendingWebgl.uniform4fv(location, value);
             };
-            this.unifomeApplyDic[UniformTypeEnum.INT]=(location,value,defValue)=>{
-                rendingWebgl.uniform1i(location, value||defValue);
+            this.unifomeApplyDic[UniformTypeEnum.INT]=(location,value)=>{
+                rendingWebgl.uniform1i(location, value);
             };
-            this.unifomeApplyDic[UniformTypeEnum.INTV]=(location,value,defValue)=>{
-                rendingWebgl.uniform1iv(location, value||defValue);
+            this.unifomeApplyDic[UniformTypeEnum.INTV]=(location,value)=>{
+                rendingWebgl.uniform1iv(location, value);
             };
-            this.unifomeApplyDic[UniformTypeEnum.INT_VEC2]=(location,value,defValue)=>{
-                rendingWebgl.uniform2iv(location, value||defValue);
+            this.unifomeApplyDic[UniformTypeEnum.INT_VEC2]=(location,value)=>{
+                rendingWebgl.uniform2iv(location, value);
             };
-            this.unifomeApplyDic[UniformTypeEnum.INT_VEC2V]=(location,value,defValue)=>{
-                rendingWebgl.uniform2iv(location, value||defValue);
+            this.unifomeApplyDic[UniformTypeEnum.INT_VEC2V]=(location,value)=>{
+                rendingWebgl.uniform2iv(location, value);
             };
-            this.unifomeApplyDic[UniformTypeEnum.INT_VEC3]=(location,value,defValue)=>{
-                rendingWebgl.uniform3iv(location, value||defValue);
+            this.unifomeApplyDic[UniformTypeEnum.INT_VEC3]=(location,value)=>{
+                rendingWebgl.uniform3iv(location, value);
             };
-            this.unifomeApplyDic[UniformTypeEnum.INT_VEC3V]=(location,value,defValue)=>{
-                rendingWebgl.uniform3iv(location, value||defValue);
+            this.unifomeApplyDic[UniformTypeEnum.INT_VEC3V]=(location,value)=>{
+                rendingWebgl.uniform3iv(location, value);
             };
-            this.unifomeApplyDic[UniformTypeEnum.INT_VEC4]=(location,value,defValue)=>{
-                rendingWebgl.uniform4iv(location, value||defValue);
+            this.unifomeApplyDic[UniformTypeEnum.INT_VEC4]=(location,value)=>{
+                rendingWebgl.uniform4iv(location, value);
             };
-            this.unifomeApplyDic[UniformTypeEnum.INT_VEC4V]=(location,value,defValue)=>{
-                rendingWebgl.uniform4iv(location, value||defValue);
+            this.unifomeApplyDic[UniformTypeEnum.INT_VEC4V]=(location,value)=>{
+                rendingWebgl.uniform4iv(location, value);
             };
-            this.unifomeApplyDic[UniformTypeEnum.BOOL]=(location,value,defValue)=>{
-                rendingWebgl.uniform1iv(location, value||defValue);
+            this.unifomeApplyDic[UniformTypeEnum.BOOL]=(location,value)=>{
+                rendingWebgl.uniform1iv(location, value);
             };
-            this.unifomeApplyDic[UniformTypeEnum.BOOL_VEC2]=(location,value,defValue)=>{
-                rendingWebgl.uniform2iv(location, value||defValue);
+            this.unifomeApplyDic[UniformTypeEnum.BOOL_VEC2]=(location,value)=>{
+                rendingWebgl.uniform2iv(location, value);
             };
-            this.unifomeApplyDic[UniformTypeEnum.BOOL_VEC3]=(location,value,defValue)=>{
-                rendingWebgl.uniform3iv(location, value||defValue);
+            this.unifomeApplyDic[UniformTypeEnum.BOOL_VEC3]=(location,value)=>{
+                rendingWebgl.uniform3iv(location, value);
             };
-            this.unifomeApplyDic[UniformTypeEnum.BOOL_VEC4]=(location,value,defValue)=>{
-                rendingWebgl.uniform4iv(location, value||defValue);
+            this.unifomeApplyDic[UniformTypeEnum.BOOL_VEC4]=(location,value)=>{
+                rendingWebgl.uniform4iv(location, value);
             };
     
-            this.unifomeApplyDic[UniformTypeEnum.FLOAT_MAT2]=(location,value,defValue)=>{
+            this.unifomeApplyDic[UniformTypeEnum.FLOAT_MAT2]=(location,value)=>{
                 rendingWebgl.uniformMatrix2fv(location,false,value);
             };
-            this.unifomeApplyDic[UniformTypeEnum.FLOAT_MAT3]=(location,value,defValue)=>{
+            this.unifomeApplyDic[UniformTypeEnum.FLOAT_MAT3]=(location,value)=>{
                 rendingWebgl.uniformMatrix3fv(location,false,value);
             };            
-            this.unifomeApplyDic[UniformTypeEnum.FLOAT_MAT4]=(location,value,defValue)=>{
+            this.unifomeApplyDic[UniformTypeEnum.FLOAT_MAT4]=(location,value)=>{
                 rendingWebgl.uniformMatrix4fv(location,false,value);
             };
     
-            this.unifomeApplyDic[UniformTypeEnum.TEXTURE]=(location,value,defValue)=>{
+            this.unifomeApplyDic[UniformTypeEnum.TEXTURE]=(location,value)=>{
     
-                let texture:Texture2D=(value||defValue).glTexture||defValue.glTexture;
+                let texture:Texture2D=value.glTexture;
+                if(texture==null) return;
     
                 // if(texture.unit!=null)
                 // {
@@ -110,10 +111,12 @@ namespace webGraph
                 }
                 // this.texIndex++;
             };
-            this.unifomeApplyDic[UniformTypeEnum.TEXTUREV]=(location,value,defValue)=>{
+            this.unifomeApplyDic[UniformTypeEnum.TEXTUREV]=(location,value)=>{
                 for(let i in value)
                 {
-                    let texture:Texture2D=(value[i]||defValue).glTexture||defValue.glTexture;
+                    let texture:Texture2D=value[i].glTexture;
+                    if(texture==null) continue;
+
                     // let unit=Graph.getFreeUnit(texture);
                     let unit=this.texIndex;
 
@@ -124,8 +127,10 @@ namespace webGraph
                     this.texIndex++;
                 }
             };
-            this.unifomeApplyDic[UniformTypeEnum.CUBETEXTURE]=(location,value,defValue)=>{
-                let texture=(value||defValue).glTexture||defValue.glTexture;
+            this.unifomeApplyDic[UniformTypeEnum.CUBETEXTURE]=(location,value)=>{
+                let texture=value.glTexture;
+                if(texture==null) return;
+
                 // let unit=Graph.getFreeUnit(texture);
                 let unit=this.texIndex;
 
@@ -135,10 +140,12 @@ namespace webGraph
                 this.texIndex++;
 
             };
-            this.unifomeApplyDic[UniformTypeEnum.CUBETEXTUREV]=(location,value,defValue)=>{
+            this.unifomeApplyDic[UniformTypeEnum.CUBETEXTUREV]=(location,value)=>{
                 for(let i in value)
                 {
-                    let texture=(value[i]||defValue).glTexture||defValue.glTexture;
+                    let texture=value[i].glTexture;
+                    if(texture==null) continue;
+
                     // let unit=Graph.getFreeUnit(texture);
                     let unit=this.texIndex;
 
