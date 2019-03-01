@@ -26,7 +26,7 @@ namespace web3d
         private markUniformDirty(uniformName:string,value:any)
         {
             this.uniformDirtyArr[uniformName]=value;
-            if(value instanceof GameAsset &&value.loadState!=LoadEnum.Success)
+            if(value instanceof Web3dAsset &&value.loadState!=LoadEnum.Success)
             {
                 value.addListenerToLoadEnd(()=>{
                     this.uniformDirtyArr[uniformName]=value;

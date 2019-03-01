@@ -3132,7 +3132,7 @@ declare namespace web3d {
         mask: LayerMask;
         gameObject: GameObject;
         private _layer;
-        readonly layer: RenderLayerEnum;
+        readonly layer: RenderLayerEnum.Background | RenderLayerEnum;
         private _queue;
         readonly queue: number;
         materials: Material[];
@@ -3286,495 +3286,6 @@ declare namespace web3d {
         BeInstantiable(): boolean;
         Dispose(): void;
         Clone(): void;
-    }
-}
-declare namespace web3d {
-    class EffectLayer {
-        active: boolean;
-        effect: EffectSystem;
-        type: F14TypeEnum;
-        frameList: number[];
-        frames: {
-            [index: number]: F14Frame;
-        };
-        Attlines: {
-            [name: string]: F14AttTimeLine;
-        };
-        baseData: ElementData;
-        element: LayerElement;
-        constructor(effect: EffectSystem, data: F14LayerData);
-        addFrame(framedata: F14FrameData): F14Frame;
-        removeFrame(frameIndex: number): void;
-        setFrameData(index: number, attname: string, value: any): void;
-        removeFrameData(index: number, attname: string): void;
-        getLineValue(index: number, attname: string, out: any): void;
-        private setAttLineData;
-        private removeAttLineData;
-        render(): void;
-        dispose(): void;
-    }
-    class F14Frame {
-        attDic: {
-            [name: string]: any;
-        };
-        constructor(data: F14FrameData);
-        setdata(name: string, value: any): void;
-        removedata(name: string): void;
-        getdata(name: string): any;
-    }
-    class F14AttTimeLine {
-        private attName;
-        private frameList;
-        private line;
-        private lerpFunc;
-        private cloneFunc;
-        constructor(name: string, lerpfunc: (from: any, to: any, lerp: any, out: any) => void, clonefunc: (from: any, to: any) => void);
-        addNode(frame: number, _value: any): void;
-        remove(frame: number): void;
-        getValue(frame: number, basedate: ElementData, out: any): void;
-    }
-    class NumberDic<T> {
-        private keys;
-        private map;
-        add(key: number, value: T): void;
-        remove(key: number): void;
-        getKeys(): number[];
-        getFirstKey(): number | null;
-        getEndKey(): number | null;
-        getValue(key: number): T;
-        containsKey(key: number): boolean;
-        foreach(fuc: (_key: number, _value: any) => void): void;
-    }
-}
-declare namespace web3d {
-    interface EffectSystem {
-        layers: EffectLayer[];
-        delayTime: number;
-        setData(data: F14EffectData): any;
-    }
-    class EffectSystem implements IRender {
-        static readonly ClassName: string;
-        materials: Material[];
-        gameObject: GameObject;
-        layer: RenderLayerEnum;
-        mask: LayerMask;
-        queue: number;
-        delayTime: number;
-        private fps;
-        data: F14EffectData;
-        layers: EffectLayer[];
-        private elements;
-        private allTime;
-        private totalTime;
-        private loopCount;
-        private totalFrame;
-        onceFrame: number;
-        private renderActive;
-        mvpMat: MathD.mat4;
-        Start(): void;
-        Update(): void;
-        private OnEndOnceLoop;
-        renderCamera: Camera;
-        Render(): void;
-        BeRenderable(): boolean;
-        BeInstantiable(): boolean;
-        Clone(): void;
-        Dispose(): void;
-        private addF14layer;
-        private playRate;
-        private playState;
-        private enabletimeFlow;
-        private enableDraw;
-        private onFinish;
-        private OnPlayEnd;
-        play(PlayRate?: number, onFinish?: () => void): void;
-        stop(): void;
-        pause(): void;
-        private reset;
-        readonly bouningSphere: BoundingSphere;
-    }
-}
-declare namespace web3d {
-    enum F14TypeEnum {
-        SingleMeshType = 0,
-        particlesType = 1,
-        RefType = 2
-    }
-    interface LayerElement {
-        type: F14TypeEnum;
-        update(deltaTime: number, frame: number, fps: number): any;
-        Render(): any;
-        dispose(): any;
-        reset(): any;
-        OnEndOnceLoop(): any;
-        layer: EffectLayer;
-        drawActive: boolean;
-    }
-}
-declare namespace web3d {
-    class EffectDataParser {
-        static JsonToData(json: any, assetbundle: string): F14EffectData;
-        static jsonToLayerData(json: any, assetbundle: string): F14LayerData;
-        static jsonToSingleMeshData(json: any, assetbundle: string): SingleMeshBaseData;
-        static jsonToParticleData(json: any, assetbundle: string): F14EmissionBaseData;
-        static jsonToRefBaseData(json: any, assetbundle: string): F14RefBaseData;
-    }
-}
-declare namespace web3d {
-    class F14EffectData {
-        beloop: boolean;
-        lifeTime: number;
-        layers: F14LayerData[];
-    }
-    class F14LayerData {
-        Name: string;
-        type: F14TypeEnum;
-        elementdata: ElementData;
-        frames: {
-            [frame: number]: F14FrameData;
-        };
-    }
-    class F14FrameData {
-        frameindex: number;
-        singlemeshAttDic: {
-            [name: string]: any;
-        };
-        EmissionData: F14EmissionBaseData;
-        constructor(index: number, type: F14TypeEnum);
-    }
-}
-declare namespace web3d {
-    interface ElementData {
-    }
-}
-declare namespace web3d {
-    class F14EmissionBaseData implements ElementData {
-        loopenum: LoopEnum;
-        mesh: Mesh;
-        material: Material;
-        rotPosition: MathD.vec3;
-        rotScale: MathD.vec3;
-        rotEuler: MathD.vec3;
-        rendermodel: RenderModelEnum;
-        beloop: boolean;
-        lifeTime: NumberData;
-        simulateInLocalSpace: boolean;
-        startScaleRate: NumberData;
-        startScale: Vector3Data;
-        startEuler: Vector3Data;
-        startColor: Vector3Data;
-        startAlpha: NumberData;
-        colorRate: number;
-        simulationSpeed: NumberData;
-        start_tex_st: MathD.vec4;
-        delayTime: number;
-        duration: number;
-        rateOverTime: NumberData;
-        bursts: busrtInfo[];
-        shapeType: ParticleSystemShape;
-        width: number;
-        height: number;
-        depth: number;
-        radius: number;
-        angle: number;
-        emitFrom: emitfromenum;
-        enableVelocityOverLifetime: boolean;
-        moveSpeed: Vector3Data;
-        enableSizeOverLifetime: boolean;
-        sizeNodes: NumberKey[];
-        enableRotOverLifeTime: boolean;
-        angleSpeed: NumberData;
-        enableColorOverLifetime: boolean;
-        colorNodes: Vector3Key[];
-        alphaNodes: NumberKey[];
-        enableTexAnimation: boolean;
-        uvType: UVTypeEnum;
-        uSpeed: number;
-        vSpeed: number;
-        row: number;
-        column: number;
-        count: number;
-        static getRandomDirAndPosByZEmission(emission: F14EmissionBaseData, outDir: MathD.vec3, outPos: MathD.vec3): void;
-    }
-    class busrtInfo {
-        time: number;
-        count: NumberData;
-        static CreatformJson(json: any): busrtInfo;
-    }
-    enum ParticleSystemShape {
-        NORMAL = 0,
-        BOX = 1,
-        SPHERE = 2,
-        HEMISPHERE = 3,
-        CONE = 4,
-        EDGE = 5,
-        CIRCLE = 6
-    }
-    enum RenderModelEnum {
-        None = 0,
-        BillBoard = 1,
-        StretchedBillBoard = 2,
-        HorizontalBillBoard = 3,
-        VerticalBillBoard = 4,
-        Mesh = 5
-    }
-    enum emitfromenum {
-        base = 0,
-        volume = 1
-    }
-}
-declare namespace web3d {
-    class NumberData {
-        isRandom: boolean;
-        _value: number;
-        _valueLimitMin: number;
-        _valueLimitMax: number;
-        beInited: boolean;
-        key: number;
-        setValue(value: number): void;
-        setRandomValue(max: number, min: number): void;
-        getValue(reRandom?: boolean): number;
-        constructor(value?: number);
-        static copyto(from: NumberData, to: NumberData): void;
-        static FormJson(json: string, data: NumberData): void;
-    }
-    class Vector3Data {
-        x: NumberData;
-        y: NumberData;
-        z: NumberData;
-        constructor(x?: number, y?: number, z?: number);
-        getValue(reRandom?: boolean): MathD.vec3;
-        static copyto(from: Vector3Data, to: Vector3Data): void;
-        static FormJson(json: string, data: Vector3Data): void;
-    }
-    class NumberKey {
-        key: number;
-        value: number;
-        constructor(_key: number, _value: number);
-    }
-    class Vector3Key {
-        key: number;
-        value: MathD.vec3;
-        constructor(_key: number, _value: MathD.vec3);
-    }
-    class Vector2Key {
-        key: number;
-        value: MathD.vec2;
-        constructor(_key: number, _value: MathD.vec2);
-    }
-}
-declare namespace web3d {
-    class F14RefBaseData implements ElementData {
-        beLoop: boolean;
-        refdataName: string;
-        refData: F14EffectData;
-        localPos: MathD.vec3;
-        localEuler: MathD.vec3;
-        localScale: MathD.vec3;
-    }
-}
-declare namespace web3d {
-    enum LoopEnum {
-        Restart = 0,
-        TimeContinue = 1
-    }
-    enum UVTypeEnum {
-        NONE = 0,
-        UVRoll = 1,
-        UVSprite = 2
-    }
-    enum BindAxis {
-        X = 0,
-        Y = 1,
-        NONE = 2
-    }
-    class SingleMeshBaseData implements ElementData {
-        loopenum: LoopEnum;
-        mesh: Mesh;
-        material: Material;
-        position: MathD.vec3;
-        scale: MathD.vec3;
-        euler: MathD.vec3;
-        color: MathD.color;
-        tex_ST: MathD.vec4;
-        enableTexAnimation: boolean;
-        uvType: UVTypeEnum;
-        uSpeed: number;
-        vSpeed: number;
-        row: number;
-        column: number;
-        count: number;
-        beBillboard: boolean;
-        bindAxis: BindAxis;
-    }
-}
-declare namespace web3d {
-    class F14Emission implements LayerElement {
-        type: F14TypeEnum;
-        layer: EffectLayer;
-        drawActive: boolean;
-        effect: EffectSystem;
-        baseddata: F14EmissionBaseData;
-        particlelist: F14Particle[];
-        deadParticles: F14Particle[];
-        batch: F14EmissionBatch;
-        private TotalTime;
-        curTime: number;
-        private beover;
-        private numcount;
-        localMatrix: MathD.mat4;
-        private _worldMatrix;
-        private localrot;
-        private worldRot;
-        vertexCount: number;
-        dataforvboLen: number;
-        dataforeboLen: number;
-        meshebo: Uint16Array | Uint32Array;
-        colorArr: MathD.color[];
-        posArr: MathD.vec3[];
-        uvArr: MathD.vec2[];
-        constructor(effect: EffectSystem, layer: EffectLayer);
-        update(deltaTime: number, frame: number, fps: number): void;
-        Render(): void;
-        private initByBasedata;
-        getWorldMatrix(): MathD.mat4;
-        getWorldRotation(): MathD.quat;
-        private updateLife;
-        private reInit;
-        private burstedIndex;
-        private updateEmission;
-        private addParticle;
-        reset(): void;
-        getMaxParticleCount(): number;
-        OnEndOnceLoop(): void;
-        dispose(): void;
-    }
-}
-declare namespace web3d {
-    class F14EmissionBatch {
-        type: F14TypeEnum;
-        effect: EffectSystem;
-        emission: F14Emission;
-        private mesh;
-        private mat;
-        curParticleCount: number;
-        curRealVboLen: number;
-        curVertexcount: number;
-        curIndexCount: number;
-        dataForVbo: Float32Array;
-        dataForEbo: Uint16Array;
-        vertexLength: number;
-        constructor(effect: EffectSystem, element: F14Emission);
-        render(effectqueue: number): void;
-        dispose(): void;
-    }
-}
-declare namespace web3d {
-    class F14Particle {
-        private data;
-        private element;
-        private totalLife;
-        private startScaleRate;
-        private startScale;
-        Starteuler: MathD.vec3;
-        StartPos: MathD.vec3;
-        startColor: MathD.vec3;
-        startAlpha: number;
-        colorRate: number;
-        private simulationSpeed;
-        private simulateInLocalSpace;
-        private starTex_ST;
-        private speedDir;
-        enableVelocityOverLifetime: boolean;
-        private movespeed;
-        enableSizeOverLifetime: boolean;
-        private sizeNodes;
-        enableRotOverLifeTime: boolean;
-        eulerSpeed: number;
-        enableColorOverLifetime: boolean;
-        private colorNodes;
-        private alphaNodes;
-        enableTexAnimation: boolean;
-        uvType: UVTypeEnum;
-        tex_ST: MathD.vec4;
-        rotationByEuler: MathD.quat;
-        rotationByShape: MathD.quat;
-        startRotation: MathD.quat;
-        rotAngle: number;
-        localMatrix: Float32Array;
-        localTranslate: MathD.vec3;
-        localRotation: MathD.quat;
-        localScale: MathD.vec3;
-        color: MathD.vec3;
-        alpha: number;
-        private Color;
-        private curLife;
-        private life01;
-        actived: boolean;
-        private emissionMatToWorld;
-        private emissionWorldRotation;
-        private getEmissionMatToWorld;
-        private getemissionWorldRotation;
-        constructor(element: F14Emission, data: F14EmissionBaseData);
-        initByEmissionData(data: F14EmissionBaseData): void;
-        update(deltaTime: number): void;
-        private tempos;
-        private temcolor;
-        private temUv;
-        uploadMeshdata(): void;
-        private transformVertex;
-        private updateLocalMatrix;
-        private updatePos;
-        private updateSize;
-        private updateEuler;
-        private angleRot;
-        private worldpos;
-        private tarWorldpos;
-        private worldspeeddir;
-        private lookDir;
-        private temptx;
-        private worldRotation;
-        private invParWorldRot;
-        private worldStartPos;
-        private updateRot;
-        private updateColor;
-        private updateUV;
-        getCurTex_ST(data: F14EmissionBaseData): void;
-        dispose(): void;
-    }
-}
-declare namespace web3d {
-    class SingleMesh implements LayerElement {
-        drawActive: boolean;
-        type: F14TypeEnum;
-        layer: EffectLayer;
-        private effect;
-        position: MathD.vec3;
-        scale: MathD.vec3;
-        euler: MathD.vec3;
-        color: MathD.color;
-        tex_ST: MathD.vec4;
-        baseddata: SingleMeshBaseData;
-        private localRotate;
-        startFrame: number;
-        endFrame: number;
-        constructor(effect: EffectSystem, layer: EffectLayer);
-        update(deltaTime: number, frame: number, fps: number): void;
-        Render(): void;
-        OnEndOnceLoop(): void;
-        targetMat: MathD.mat4;
-        refreshTargetMatrix(): void;
-        refreshCurTex_ST(curframe: number, detalTime: number, fps: number): void;
-        private eulerRot;
-        private worldpos;
-        private worldRot;
-        private inverseRot;
-        private lookDir;
-        private worldDirx;
-        private worldDiry;
-        updateRotByBillboard(): void;
-        reset(): void;
-        dispose(): void;
     }
 }
 declare namespace web3d {
@@ -4227,69 +3738,28 @@ declare namespace web3d {
     }
 }
 declare namespace web3d {
-    class Graph {
-        renderlist: RenderList;
-        renderCameras: Camera[];
-        renderLights: Light[];
-        constructor();
-        beforeRender(): void;
-        renderScene(scen: Scene): void;
-        private _fillRenderer;
-        renderOnce(): void;
-        globalDrawType: DrawTypeEnum;
-        activeInstanceDrawType: boolean;
-        private instanceCount;
-        draw(mesh: Mesh, mat: Material, submesh: subMeshInfo, localDrawType: DrawTypeEnum): void;
-        private InstanceMaxCount;
-        private instanceDataInit;
-        private realPosDataArr;
-        private realRotDataArr;
-        private realScaleDataArr;
-        private posArr;
-        private rotArr;
-        private scaleArr;
-        private posAtt;
-        private rotAtt;
-        private scaleAtt;
-        private instanceRenderAll;
-        bindMat(mat: Material, drawType: DrawTypeEnum, programIndex?: number): void;
-        bindShaderPass(pass: ShaderPass, programIndex: number, uniformDic: {
+    class Graphics {
+        static bindShaderPass(pass: ShaderPass, programIndex: number, uniformDic: {
             [id: string]: any;
         }, defUniform: {
             [id: string]: any;
         }): void;
-        drawSubMesh(mesh: Mesh, mat: Material, matrix?: MathD.mat4, drawType?: DrawTypeEnum, layer?: LayerMask, submeshIndex?: number, cam?: Camera): void;
-        drawMesh(mesh: Mesh, mat: Material[], matrix: MathD.mat4, drawType: DrawTypeEnum, layer: LayerMask, cam?: Camera): void;
-        drawMeshNow(mesh: Mesh, submeshIndex: number): void;
-        drawObjectsNow(cam: Camera, renderlist: RenderList): void;
+        static bindMat(mat: Material, drawType: DrawTypeEnum, programIndex?: number): void;
+        static drawSubMesh(mesh: Mesh, mat: Material, matrix?: MathD.mat4, drawType?: DrawTypeEnum, layer?: LayerMask, submeshIndex?: number, cam?: Camera): void;
+        static drawSubMeshInstanced(mesh: Mesh, mat: Material, matrix: MathD.mat4[], drawType?: DrawTypeEnum, layer?: LayerMask, submeshIndex?: number, cam?: Camera): void;
+        static drawMesh(mesh: Mesh, mat: Material[], matrix: MathD.mat4, drawType: DrawTypeEnum, layer: LayerMask, cam?: Camera): void;
+        static drawMeshNow(mesh: Mesh, submeshIndex: number): void;
+        static drawObjectsNow(cam: Camera, renderlist: RenderList): void;
     }
     interface IRenderItem {
         mesh: Mesh;
         mat: Material;
-        matrix: MathD.mat4;
+        matrix: MathD.mat4 | MathD.mat4[];
         drawType: DrawTypeEnum;
         layermask: LayerMask;
         submeshIndex: number;
+        intanceCount?: number;
         cam?: Camera;
-    }
-    class RenderList {
-        private layerLists;
-        constructor();
-        clear(): void;
-        addRenderItem(item: IRenderItem): void;
-        setLayerSortFunc(layer: RenderLayerEnum, queuesortfunc: (a: IRenderItem[]) => void): void;
-        foreach(fuc: (item: IRenderItem) => void): void;
-    }
-    class LayerList {
-        private layer;
-        private queDic;
-        private queArr;
-        constructor(layerType: string, queueSortFunc?: (arr: IRenderItem[]) => void);
-        queueSortFunc: (arr: IRenderItem[]) => void;
-        addRender(item: IRenderItem): void;
-        sort(): void;
-        foreach(fuc: (item: IRenderItem) => void): void;
-        clear(): void;
     }
 }
 declare namespace web3d {
@@ -4337,8 +3807,32 @@ declare namespace web3d {
     }
 }
 declare namespace web3d {
+    class RenderList {
+        private layerLists;
+        constructor();
+        clear(): void;
+        addRenderItem(item: IRenderItem): void;
+        setLayerSortFunc(layer: RenderLayerEnum, queuesortfunc: (a: IRenderItem[]) => void): void;
+        foreach(fuc: (item: IRenderItem) => void): void;
+        private static map;
+        static get(cam: Camera): RenderList;
+    }
+    class LayerList {
+        private layer;
+        private queDic;
+        private queArr;
+        constructor(layerType: string, queueSortFunc?: (arr: IRenderItem[]) => void);
+        queueSortFunc: (arr: IRenderItem[]) => void;
+        addRender(item: IRenderItem): void;
+        sort(): void;
+        foreach(fuc: (item: IRenderItem) => void): void;
+        clear(): void;
+    }
+}
+declare namespace web3d {
     class Rendermgr {
         renderlistall: renderListAll;
+        renderlist: RenderList;
         renderCameras: Camera[];
         renderLights: Light[];
         constructor();
@@ -4368,7 +3862,6 @@ declare namespace web3d {
         }, defUniform: {
             [id: string]: any;
         }): void;
-        private renderlist;
         drawSubMesh(mesh: Mesh, mat: Material, matrix?: MathD.mat4, drawType?: DrawTypeEnum, layer?: LayerMask, submeshIndex?: number, cam?: Camera): void;
         drawMesh(mesh: Mesh, mat: Material[], matrix: MathD.mat4, drawType: DrawTypeEnum, layer: LayerMask, cam?: Camera): void;
         drawMeshNow(mesh: Mesh, submeshIndex: number): void;
@@ -4457,6 +3950,7 @@ declare namespace web3d {
         };
         private componentsInit;
         render: IRender;
+        readonly id: number;
         constructor();
         start(): void;
         update(delta: number): void;

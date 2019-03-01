@@ -284,11 +284,3 @@ declare namespace dome {
         update(delta: number): void;
     }
 }
-declare namespace dome {
-    class testSeralize implements IState {
-        private transroot;
-        start(): void;
-        update(delta: number): void;
-        private addbutton;
-    }
-}
