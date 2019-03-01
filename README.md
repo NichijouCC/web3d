@@ -1,7 +1,7 @@
 
-###  **本项目目的是在webgl 3d游戏引擎中研究学习webgl、图形、引擎开发技术并进行实践，unity3d like 风格（接口like，架构努力ing）。目前项目有很多坑，欢迎有志之士入坑来战，QQ交流讨论群334522247** 
+###  **本项目目的是在webgl 3d游戏引擎中研究学习webgl、图形、引擎开发技术并进行实践。QQ交流讨论群334522247** 
 
-### 项目使用：
+### 项目启动：
     开发工具vscode+typescript,使用vscode打开本项目，安装拓展debugger for chrome/preview on web server,ctrl+shift+r启动服务器，F5即可跑起dome样例。
 
 ### 代码结构：
@@ -20,9 +20,9 @@
     8.font支持动态图集，以及基于html的hud lable。
     ....
 
-### 研究内容ing简介：
+### 研究内容简介：
 
-    1.transform的脏标识。
+    1.transform的脏标识（高效update）。
     2.骨骼动画的高效实现。
     3.render流程优化。
         包含有：1.state cache，例如ztest、blend等
@@ -34,10 +34,10 @@
     6.动态图集实现，即在context2d上写字，并组成font图集。
     6.碰撞相关，例如射线检测
     7.实现webworker（多线程）加载并解析游戏资源。
+    8.导航寻路（挨着地面）
     .........
 
-### 存在的坑：
-        一大堆......................
+
 
       
         
