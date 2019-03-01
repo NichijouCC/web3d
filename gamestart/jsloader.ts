@@ -52,7 +52,7 @@ namespace game
                 }
             }
             script.onerror =(ev)=>{
-                let error = "load Script Error \r\n no file:" + ev.srcElement.baseURI;
+                let error = "load Script Error \r\n no file:" + src;
                 alert(error);
             }
             document.head.appendChild(script);
